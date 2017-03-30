@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>无限轮播</title>
+	<style type="text/css">
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#box{width: 546px;
+height: 240px;
+overflow: hidden;
+position: relative;
+margin: 0 auto;}
+
+
+#box ul{width: 3822px;
+height: 240px;
+}
+
+#box ul li{width: 546px;
+height: 240px;
+float: left;
+display: inline-block;}
+
+#box ul li img{width: 546px;
+height: 240px;}
+
+#box ol{width: 180px;
+height: 20px;
+position: absolute;
+top:210px;
+right: 20px;}
+
+#box ol li{width: 18px;
+height: 18px;
+background: blue;
+text-align: center;
+cursor: pointer;
+line-height: 18px;
+margin: 0 3px;
+float: left;}
+
+#box ol .list{background:red;
+color: #fff;}
+
+	</style>
+
+</head>
+<body>
+<script type="text/javascript" src="js/move.js"></script>
+	<div id="box">
+		<ul>
+			<li><img src="img/banner_1.jpg"></li>
+			<li><img src="img/banner_2.jpg"></li>
+			<li><img src="img/banner_3.jpg"></li>
+			<li><img src="img/banner_4.jpg"></li>
+			<li><img src="img/banner_5.jpg"></li>
+			<li><img src="img/banner_6.jpg"></li>
+			<li><img src="img/banner_1.jpg"></li>
+		</ul>
+		<ol>
+			<li class="list">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+		</ol>
+	</div>
+	<script type="text/javascript">
+		var box=document.getElementById('box'),
+		myul=box.getElementsByTagName('ul')[0],
+		myul_li=myul.getElementsByTagName('li'),
+		
+		myol=box.getElementsByTagName('ol')[0],
+		myol_li=myol.getElementsByTagName('li'),
+		
+		timer,
+		num=0;
+		
+		timer=setInterval(function(){mov()},1000)	
+
+			 function mov(){
+					if (num==0) {
+						myul.style.marginLeft='0'
+					};
+					num++;
+					startMove(myul,num*-546,'marginLeft')
+					
+					if (num==myol_li.length){
+						num=0;
+					};
+					for (var i = 0; i < myol_li.length; i++) {
+						myol_li[i].className=''
+					};
+					myol_li[num].className='list';
+				}
+
+				
+			
+			
+		
+			box.onmouseover=function(){
+			clearInterval(timer)
+			}
+		    box.onmouseout=function(){
+			timer=setInterval(function(){mov()},1000)
+			}
+			
+			for(var i=0;i<myol_li.length;i++){
+				myol_li[i].index=i;
+				myol_li[i].onmouseover=function()
+				{
+					num=this.index-1;
+					mov()
+				}	
+			}
+
+
+	</script>
+</body>
+</html>

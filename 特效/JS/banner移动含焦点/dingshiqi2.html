@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>定时器</title>
+</head>
+
+<style>
+*{ margin:0;
+padding:0;
+list-style:none;
+font-family:"微软雅黑";
+font-size:14px;}
+
+#box{ width:1222px;
+height:362px;
+margin:50px auto;
+border:1px solid #ccc;
+overflow:hidden;}
+
+#box ul{ width:6100px;
+height:360px;}
+
+#box ul li{ width:1220px;
+height:360px;
+float:left;}
+
+#box ul li img{ width:1220px;
+height:360px;}
+
+#box ol{
+		width: 200px;
+		height: 30px;
+		position: absolute;
+		top:375px;
+		left: 1100px;
+	}
+#box ol li{
+		width: 28px;
+		height: 28px;
+		line-height: 28px;
+		text-align: center;
+		margin: 0px 3px;
+		background: #0B3B7B;
+		color: #E3DCCA;
+		float: left;
+		cursor: pointer;
+		border-radius: 5px;}
+
+#box ol .list{ 
+background:#F00;
+color:#FF0;}
+
+
+</style>
+
+<body>
+
+<div id="box">
+	<ul>
+    	<li><img src="img1/banner1.jpg" /></li>
+        <li><img src="img1/banner2.jpg" /></li>
+        <li><img src="img1/banner3.jpg" /></li>
+        <li><img src="img1/banner4.jpg" /></li>
+        <li><img src="img1/banner5.jpg" /></li>
+    </ul>
+    
+    <ol>
+    	<li class="list">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ol>
+</div>
+
+<script>
+	var box=document.getElementById('box'),
+		myul=box.getElementsByTagName('ul')[0],
+		myul_li=myul.getElementsByTagName('li'),
+		
+		myol=box.getElementsByTagName('ol')[0],
+		myol_li=myol.getElementsByTagName('li'),
+		
+		timer,
+		num=0;
+		
+		timer=setInterval(function(){move()},2000)	
+		function move(){
+			num++;
+			console.log(num)
+			if(num>4)
+			{
+				num=0;
+				myul.style.marginLeft=num*-1220+'px';
+				for(i=0;  i<myol_li.length; i++){
+					myol_li[i].className='';
+					}
+					myol_li[num].className='list'
+					}
+			else{
+			myul.style.marginLeft=num*-1220+'px';
+			
+			for(i=0;  i<myol_li.length; i++){
+					myol_li[i].className='';
+					}
+				myol_li[num].className='list';
+				}
+				
+			}
+			
+		
+			box.onmouseover=function(){
+			clearInterval(timer)
+			}
+		    box.onmouseout=function(){
+			timer=setInterval(function(){move()},2000)
+			}
+			
+			for(var i=0;i<myol_li.length;i++){
+				myol_li[i].index=i;
+				myol_li[i].onmouseover=function()
+				{
+					num=this.index-1;
+					move()
+				}	
+			}
+		
+			
+			
+		
+
+</script>
+</body>
+</html>

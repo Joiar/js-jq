@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+        #btn{
+            width: 150px;
+            height: 30px;
+            margin-top:700px;
+            margin-left: 100px;
+            background: pink;
+            border: none;
+        }
+    </style>
+</head>
+<body id="bd" style="background: url(./1.jpg) no-repeat;width: 500px;height: 250px;" >
+
+    <button onclick="clickme()" id="btn">点我换图片</button>
+    <script type="text/javascript">
+        var bd = document.getElementById('bd');
+        var picArr = ['./1.jpg','./2.jpg','./3.jpg','./4.jpg','./5.jpg','./6.jpg'];
+        var i = 0;
+        function clickme(){
+            if (i == picArr.length-1) {
+                i = 0;
+            } else {
+                i++;
+            }
+            // console.log(i);
+        bd.style.background = 'url(' + picArr[i] + ') no-repeat';
+        console.log(picArr[i]);
+        console.log(bd.style.background);
+        }
+
+    </script>
+</body>
+</html>

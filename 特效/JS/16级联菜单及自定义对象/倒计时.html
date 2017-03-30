@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>倒计时</title>
+</head>
+
+<body>
+<div id="timer" style="width:250px;height:80px;border:1px solid #900;text-align:center;color:red;font-weight:600;font-size:23px;padding-top:20px"></div>
+<div id="timer2" style="width:250px;height:80px;border:1px solid #900;text-align:center;color:red;font-weight:600;font-size:23px;padding-top:20px"></div>
+<script type="text/javascript">
+function Time(){
+	this.out=function(tim,id){setInterval(function(){
+		
+		today=new Date();
+		//alert(today);
+		end=new Date(tim)
+		//alert(end)
+		left=parseInt((end-today)/1000);
+		//alert(left);
+		days=parseInt(left/60/60/24);
+		hours=parseInt(left/60/60%24);
+		minutes=parseInt(left/60%60);
+		seconds=parseInt(left%60);
+		document.getElementById(id).innerHTML="放假倒计时<br />"+days+"天"+hours+"小时"+minutes+"分"+seconds+"秒";
+	},1)
+	}
+}
+countTime=new Time()
+countTime.out("2013/02/01 16:30:00","timer")
+countTime1=new Time()
+countTime1.out("2013/01/24 16:30:00","timer2")
+</script>
+</body>
+</html>

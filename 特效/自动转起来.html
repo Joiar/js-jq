@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+        #bg1{
+            width: 400px;
+            height: 400px;
+            background: pink;
+            border-radius: 30%;
+            transition: all 0.3s;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+        #bg2{
+            width: 200px;
+            height: 200px;
+            background: lightblue;
+            position: relative;
+            left: 100px;
+            top: 100px;
+            border-radius: 20%;
+            transition: all 0.3s;
+        }
+        #bg3{
+            width: 100px;
+            height: 100px;
+            background: lightgrey;
+            position: relative;
+            left: 50px;
+            top: 50px;
+            text-align: center;
+            line-height: 100px;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <div id="bg1">
+        <div id="bg2">
+            <div id="bg3">转起来</div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var bg1 = document.getElementById('bg1');
+        var bg2 = document.getElementById('bg2');
+        var bg3 = document.getElementById('bg3');
+        setInterval(function () {
+            bg1.style.background =(["red","blue","pink","navy","gray","yellow","green","purple"])[parseInt(Math.random()*8)];
+        },500);
+        setInterval(function () {
+            bg2.style.background =(["lightgrey","yellow","gray","blue","lightblue","red","pink","green","purple"])[parseInt(Math.random()*9)];
+        },500);
+        // bg1.onclick =
+        var i=0;
+        var j=0;
+        setInterval(function(){
+                bg1.style.transform = "rotate("+ i +"deg)";
+                console.log(i + "deg");
+                i += 5;
+        },100);
+        setInterval(function(){
+                bg2.style.transform = "rotate("+ j +"deg)";
+                console.log(j + "deg");
+                j -= 20;
+        },100);
+        setInterval(function(){
+
+                bg3.style.transform = "rotate("+ i +"deg)";
+                console.log(i + "deg");
+                i += 5;
+        },100);
+    </script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    *{margin: 0;
+        padding: 0;
+        list-style: none;}
+
+    #box{width: 200px;
+        height: 200px;
+        background: yellow;
+        border: 1px solid #ccc;
+        margin: 0 auto;
+        cursor: pointer;
+        position: relative;}
+
+    #box ul{width: 150px;
+        height: 50px;
+        float: left;
+        background: #000;}
+
+     #boxreturn{width: 30px;
+        height: 30px;
+        position: absolute;
+        margin:50px 50px;
+        font-size: 12px;
+        text-align: center;
+        line-height: 30px;
+        color: #fff;
+        display: none;
+        top: 50px;
+        border-radius: 5px;
+        right: 50px;
+        background: blue;
+        cursor: pointer;
+        }
+
+    #box ul ,#da{width: 30px;
+        height: 30px;
+        float: left;
+        position: absolute;
+        background: green;
+        margin: 10px 20px;
+        font-size: 12px;
+        line-height: 30px;
+        text-align: center;
+    }
+
+    #box ul ,#xiao{width: 30px;
+        height: 30px;
+        float: right;
+        position: absolute;
+        background: green;
+        margin: 10px 60px;
+        font-size: 12px;
+        line-height: 30px;
+        text-align: center;
+    }
+
+
+
+    </style>
+</head>
+<body>
+    <div id="box">
+        <ul>
+            <li id="da">大</li>
+            <li id="xiao">小</li>
+        </ul>
+    </div>
+    <div id="boxreturn">恢复</div>
+
+    <script type="text/javascript">
+    var box=document.getElementById('box'),
+        da=document.getElementById('da'),
+        xiao=document.getElementById('xiao'),
+        boxreturn=document.getElementById('boxreturn');
+
+        box.onmousedown=function(e){
+                var ev=e||window.event;
+                    DX=ev.clientX-box.offsetLeft,
+                    DY=ev.clientY-box.offsetTop;
+
+        document.onmousemove=function(e){
+                var ev=e||window.event;
+                    l=ev.clientX-DX;
+                    t=ev.clientY-DY;
+
+                if (l<=0) {l=0;}
+
+                if (t<=0) {t=0;}
+
+                if (l>=document.documentElement.clientWidth-box.offsetWidth) {
+                    l=document.documentElement.clientWidth-box.offsetWidth;
+                };
+                if (t>=document.documentElement.clientHeight-box.offsetHeight) {
+                    t=document.documentElement.clientHeight-box.offsetHeight;
+                };
+
+                    box.style.left=l+'px';
+                    box.style.top=t+'px';
+
+        }
+            document.onmouseup=function(){
+            document.onmousemove=null;
+        };
+        }
+
+    xiao.onclick=function(){
+        box.style.display='none';
+        boxreturn.style.display='block';
+    }
+
+    boxreturn.onclick=function(){
+        box.style.display='block';
+        boxreturn.style.display='none';
+    }
+
+    da.onclick=function(){
+
+        if(box.offsetWidth=='202'){
+            box.style.width=document.documentElement.clientWidth+'px';
+            box.style.height=document.documentElement.clientHeight+'px';
+            box.style.left='0';
+            box.style.top='0';
+        }
+        else{
+            box.style.width='200px';
+            box.style.height='200px';}
+
+    }
+
+
+
+
+
+    </script>
+</body>
+</html>

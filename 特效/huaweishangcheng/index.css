@@ -1,0 +1,52 @@
+body,a,ul{
+	margin:0;
+	padding: 0;
+}
+a{
+	list-style: none;
+}
+.shortcut{
+	width: 100%;
+	height: 30px;
+	background:rgb(250, 250, 250) ;
+	color: #8c8c8c;
+	font-family:arial, 微软雅黑;
+	font-size: 12px;
+}
+.shortcut-lj{
+	width: 1200px;
+	height: 30px;
+	/*float: left;*/
+    margin: 0 auto;
+	line-height: 30px;
+}
+.shortcut-lj a{
+	text-decoration: none;
+	color: #8c8c8c;
+	cursor: pointer;
+}
+.shortcut-lj a:hover{
+	color: red;
+	cursor: pointer;
+}
+.shortcut-lj li{
+	float: left;
+	padding:0 10px;
+	list-style: none;
+	/*border-right: 1px solid #8c8c8c;*/
+}
+.shortcut-lj-right{
+	float: right;
+}
+.shortcut-lj-xiala{
+	display: none;
+}
+.rjyy:hover{
+	display: block;
+}
+/*banner*/
+.banner{
+	width: 100%;
+	height: 480px;
+	background: red;
+}

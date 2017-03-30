@@ -1,0 +1,78 @@
+<html> 
+<head> 
+</head> 
+<body> 
+    <canvas id="myCanvas" width="600" height="300"></canvas> 
+
+    <script type="text/javascript"> 
+        var c = document.getElementById("myCanvas"); 
+        var cxt = c.getContext("2d"); 
+        var slen = 60; 
+        var mlen = 50; 
+        var hlen = 40; 
+        cxt.strokeRect(0, 0, c.width, c.height); 
+        cxt.beginPath(); 
+        cxt.strokeStyle = "#00f"; 
+        cxt.fillStyle = "#00f"; 
+        cxt.arc(200, 150, 5, 0, 2 * Math.PI, true); 
+        cxt.fill(); 
+        cxt.closePath(); 
+
+        cxt.beginPath(); 
+        cxt.strokeStyle = "#00f"; 
+        cxt.arc(200, 150, 100, 0, 2 * Math.PI, true); 
+        cxt.stroke(); 
+        cxt.closePath(); 
+        cxt.beginPath(); 
+        cxt.translate(200, 150); //Æ½ÒÆÔ­µã£» 
+        cxt.rotate(-Math.PI / 2); 
+        cxt.save();        
+        for (var i = 0; i < 60; i++) { 
+            if (i % 5 == 0) { 
+                //                cxt.fillStyle = "#ff0000"; 
+                cxt.fillRect(80, 0, 20, 5); 
+                cxt.fillText("" + (i / 5 == 0 ? 12 : i / 5), 70, 0); 
+            } else { 
+               // cxt.strokeStyle = "#00f"; 
+                cxt.fillRect(90, 0, 10, 2); 
+            } 
+            //document.getElementById("div1").innerText += " " + i; 
+            cxt.rotate(Math.PI / 30); 
+        } 
+        cxt.closePath(); 
+
+        var ls = 0, lm = 0, lh = 0; 
+function Refresh() { 
+    cxt.restore(); 
+    cxt.save(); 
+    cxt.rotate(ls * Math.PI / 30); 
+    cxt.clearRect(5, -1, slen+1, 2+2); 
+    cxt.restore(); cxt.save(); 
+
+    cxt.rotate(lm * Math.PI / 30); 
+    cxt.clearRect(5, -1, mlen+1, 3+2); 
+    cxt.restore(); cxt.save(); 
+
+    cxt.rotate(lh * Math.PI / 6); 
+    cxt.clearRect(5, -3, hlen+1, 4+2); 
+
+    var time = new Date(); 
+            var s = ls=time.getSeconds(); 
+            var m = lm=time.getMinutes(); 
+            var h = lh=time.getHours();            
+            cxt.restore(); 
+            cxt.save(); 
+            cxt.rotate(s * Math.PI / 30); 
+            cxt.fillRect(5, 0, slen, 2); 
+            cxt.restore(); cxt.save(); 
+            cxt.rotate(m * Math.PI / 30); 
+            cxt.fillRect(5, 0, mlen, 3); 
+            cxt.restore(); cxt.save(); 
+            cxt.rotate(h * Math.PI / 6); 
+            cxt.fillRect(5, -2, hlen, 4); 
+        } 
+        var MyInterval = setInterval("Refresh();", 1000); 
+    </script> 
+<div id="div1" style=" background:#00f;"></div> 
+</body> 
+</html>

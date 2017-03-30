@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+	*{
+		margin: 0;
+		padding:0;
+		list-style: none;
+	}
+	#box{
+		width: 1000px;
+		height: 330px;
+		margin: 0 auto;
+	}
+	#box ul{
+		width: 906px;
+		height: 324px;
+		float: left;
+		position: relative;
+	}
+	#box ul li{
+		position: absolute;
+		left: 0;
+		top:0;
+	}
+	#box ul li img{
+		width: 906px;
+		height: 324px;
+	}
+	#box ol{
+		width: 61px;
+		height: 234px;
+		float: right;
+	}
+	#box ol li{
+		width: 61px;
+		height: 35px;
+		margin-top: 15px;
+		float: right;
+		cursor: pointer;
+
+	}
+	#box ol .on .cai{
+		display: block;
+		border:1px solid red;
+	}
+	#box ol .on .hei{
+		display: none;
+	}
+	.cai{
+		display: none;
+	}
+</style>
+<body>
+<div id='box'>
+	<ul>
+		<li style="z-index:1;"><img src="img/d1.jpg" alt="" /></li>
+		<li><img src="img/d2.jpg" alt="" /></li>
+		<li><img src="img/d3.jpg" alt="" /></li>
+		<li><img src="img/d4.jpg" alt="" /></li>
+		<li><img src="img/d5.jpg" alt="" /></li>
+		<li><img src="img/d6.jpg" alt="" /></li>
+	</ul>
+	<ol>
+		<li class="on"><img src="img/x11.jpg" class="cai"><img src="img/x1.jpg" class="hei"></li>
+		<li><img src="img/x21.jpg" class="cai"><img src="img/x2.jpg" class="hei"></li>
+		<li><img src="img/x31.jpg" class="cai"><img src="img/x3.jpg" class="hei"></li>
+		<li><img src="img/x41.jpg" class="cai"><img src="img/x4.jpg" class="hei"></li>
+		<li><img src="img/x51.jpg" class="cai"><img src="img/x5.jpg" class="hei"></li>
+		<li><img src="img/x61.jpg" class="cai"><img src="img/x6.jpg" class="hei"></li>
+	</ol>
+</div>
+<script type="text/javascript" src="js/move.js"></script>
+<script type="text/javascript">
+	var box=document.getElementById('box'),
+		aImg=box.getElementsByTagName('ul')[0].getElementsByTagName('li'),
+		aBtn=box.getElementsByTagName('ol')[0].getElementsByTagName('li'),
+		timer=null,
+		n=0,
+		z=1;
+
+	function change(){
+		n++;
+		if (n==aImg.length) {
+			n=0;
+		};
+		aImg[n].style.opacity='0';
+		startMove(aImg[n],100,'opacity');
+		aImg[n].style.zIndex=++z;
+		for (var i = 0; i <aBtn.length; i++) {
+			aBtn[i].className='';
+		};
+		aBtn[n].className='on';
+	}
+	function tIme(){
+		timer=setInterval(function(){
+			change()
+		},2000);
+	}
+	tIme()
+	for (var i = 0; i <aBtn.length; i++) {
+		aBtn[i].index=i;
+		aBtn[i].onmouseover=function(){
+			clearInterval(timer);
+			n=this.index-1;
+			change();
+		}
+		aBtn[i].onmouseout=function(){
+			tIme();
+		}
+	};
+	
+</script>	
+</body>
+</html>

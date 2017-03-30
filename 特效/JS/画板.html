@@ -1,0 +1,228 @@
+<!doctype html> 
+<html> 
+<head> 
+<title>canvas简单画板</title> 
+<style type="text/css"> 
+#can{ width:600px; height:500px; border:1px solid #ccc; margin-top:0px; margin-left:20px;} 
+</style> 
+<meta charset="utf-8">
+</head> 
+<body> 
+原理：
+鼠标按下的时候，获得按下时候的坐标ctx.moveTo(e.clientX-10,e.clientY-10)然后鼠标移动的时候就不断的画线，!isDown||ctx.lineTo(e.clientX-10, e.clientY-10, 5, 5)鼠标放开的时候，自然就要吧isDown设置为false了。
+然后就总结一下画线的关键步骤好了。<br>
+
+第一步是取得画布。<br>
+
+第二步是开始画线。beginPath()<br>
+
+第三步是移动线条moveTo(),lineTo()。<br>
+
+第四步就是画线stroke()。
+<h2 style="padding-left:20px">canvas简单画板</h2> 
+<canvas id="can" width="600" height="500"></canvas> 
+<script type="text/javascript">
+//获取上侧距离。
+function getBodyOffsetTop(el){ 
+var top = 0; 
+//do{}while(){}先执行后判断；while(){}先循环后执行
+do{  
+top = top + el.offsetTop;//获取当前元素距父元素或body的上侧距离 
+
+}while(el = el.offsetParent); 
+return top; 
+} 
+
+//获取左侧距离
+function getBodyOffsetLeft(el){ 
+var left = 0;
+do{ 
+left = left + el.offsetLeft; 
+}while(el = el.offsetParent); 
+return left; 
+} 
+
+
+function Drawing(canvas,options){ 
+//在浏览器支持的情况下，但没有canvas对象和不支持某些方法或对象就输出false,换句话说次句话就是判断浏览器支持的；
+typeof canvas == 'string' && (canvas = document.getElementById(canvas)); 
+//浏览器支持，但是缺少对象:canvas对象
+if(!canvas || !canvas.getContext){ 
+throw new Error(100,'do not support canvas!'); //抛出异常
+} 
+//向画板色板中的颜色存到Drawing对象的属性option中；
+this.option = { 
+colors:['#000000','#ff0000','#00ff00','#0000ff','#00ffff','#7fef02','#4488bb','#8899cc'] 
+}; 
+//调用setOption方法
+this.setOption(options); 
+this.init(canvas); 
+} 
+//创建setOption方法
+Drawing.prototype = { 
+setOption:function(options){ 
+typeof options == 'object' || (options = {}); 
+for(var i in options){ 
+switch(i){ 
+case 'colors': 
+this.option[i] = options[i]; //第一次循环:   options["colors"],其实就是把外部的参数与内部的option属性进行结合；
+//this.option["colors"]=options["colors"];
+break; 
+} 
+} 
+}, 
+//创建Drawing对象的init方法
+init:function(canvas){ 
+this.canvas = canvas; 
+this.context = canvas.getContext('2d'); 
+this.context.lineWidth = 1; 
+this.context.lineJons = 'round'; 
+this.context.lineCep = 'round'; 
+this.isButtonDown = false; 
+this.historyStroker = []; 
+this.curStroker = {color:'#000000',path:[]}; 
+this.lastX = 0; //设置默认的x坐标;就是初始坐标
+this.lastY = 0; //设置默认的y坐标;就是初始坐标
+this.curColor = '#000000'; //设置画笔默认的颜色
+this.toolbarspos ={}; //画笔的位置对像，鼠标的动态位置
+this.bindEvent(); //绑定事件的方法
+this.ResetDrawToolbar();//恢复绘画工具的方法 
+}, 
+//创建绑定事件的方法
+bindEvent:function(){ //bindEvent是用来检测用户浏览器类型的
+var self = this; 
+this.canvas.addEventListener('mousemove',function(event){ 
+var x = event.pageX-getBodyOffsetLeft(this), 
+y = event.pageY-getBodyOffsetTop(this); 
+self.onMouseMove({x:x,y:y}); 
+},false); 
+this.canvas.addEventListener('mousedown',function(event){ 
+var x = event.pageX-getBodyOffsetLeft(this), 
+y = event.pageY-getBodyOffsetTop(this); 
+self.onMouseDown(event,{x:x,y:y}); 
+},false); 
+this.canvas.addEventListener('mouseup',function(event){ 
+var x = event.pageX-getBodyOffsetLeft(this), 
+y = event.pageY-getBodyOffsetTop(this); 
+self.onMouseUp(event,{x:x,y:y}); 
+},false); 
+this.canvas.addEventListener('click',function(event){ 
+var x = event.pageX-getBodyOffsetLeft(this), 
+y = event.pageY-getBodyOffsetTop(this); 
+self.onClick({x:x,y:y}); 
+},false); 
+}, 
+//创建鼠标移动的方法,保证在画布内部移动才能绘画
+onMouseMove:function(pos){ 
+if(this.isButtonDown){ 
+var p = this.toolbarspos; 
+for(var i in p){ 
+if(pos.x >= p[i].x 
+&& pos.x <= p[i].x+p[i].w 
+&& pos.y >= p[i].y 
+&& pos.y <= p[i].y+p[i].h){ 
+return; 
+} 
+} 
+this.context.lineTo(pos.x,pos.y); 
+this.context.stroke(); 
+this.lastX = pos.x; 
+this.lastY = pos.y; 
+this.curStroker.path.push(pos); 
+} 
+}, 
+//创建鼠标按下的方法:保证起始坐标(按下的坐标)必须在画布之内
+onMouseDown:function(event,pos){ 
+if(event.button == 0){ 
+var p = this.toolbarspos; 
+for(var i in p){ 
+if(pos.x >= p[i].x 
+&& pos.x <= p[i].x+p[i].w 
+&& pos.y >= p[i].y 
+&& pos.y <= p[i].y+p[i].h){ 
+return; 
+} 
+} 
+this.isButtonDown = true; 
+this.lastX = pos.x; 
+this.lastY = pos.y; 
+this.context.beginPath(); 
+this.context.moveTo(this.lastX,this.lastY); 
+this.curStroker.color = this.curColor; 
+this.curStroker.path.push(pos); 
+} 
+}, 
+//创建释放鼠标按钮的方法,释放必须在画布之内，否则不行继续绘画；
+onMouseUp:function(event,pos){ 
+if(event.button == 0){ 
+var p = this.toolbarspos; 
+for(var i in p){ 
+if(pos.x >= p[i].x 
+&& pos.x <= p[i].x+p[i].w 
+&& pos.y >= p[i].y 
+&& pos.y <= p[i].y+p[i].h){ 
+return; 
+} 
+} 
+this.isButtonDown = false; 
+this.historyStroker.push(this.curStroker); 
+this.curStroker = {color:this.curColor,path:[]}; 
+} 
+}, 
+//花完后，想从新绘画，清楚的绘画。就是刷新画布
+ResetDrawAll:function(){ 
+this.context.clearRect(0,0,500,500); 
+this.ResetDrawCentre();//重新设置画布 
+this.ResetDrawToolbar(); //重新设置画笔
+}, 
+//根据不同的浏览器，重新设置中心位置.由于不同的浏览器对offsetleft及相关属性解释不一样，所以写出这种代码；
+ResetDrawCentre:function(){ 
+var p = this.historyStroker,p2,curColor = this.context.strokeStyle; 
+for(var i=0; i< p.length;i++){ 
+this.context.strokeStyle = p[i].color; 
+this.context.beginPath(); 
+for(var t=0; t<p[i].path.length;t++){ 
+p2 = p[i].path[t]; 
+if(t==0) this.context.moveTo(p2.x,p2.y); 
+this.context.lineTo(p2.x,p2.y); 
+this.context.stroke(); 
+} 
+this.context.beginPath(); 
+} 
+this.context.strokeStyle = curColor; 
+}, 
+//创建重新设置绘画工具的方法（工具条）
+ResetDrawToolbar:function(){ 
+var curcolor = this.context.fillStyle; 
+for(var i=0; i<this.option.colors.length;i++){ 
+this.context.fillStyle = this.option.colors[i]; 
+if(this.curColor == this.context.fillStyle){ 
+this.context.fillRect(i*35+5,2,30,20); 
+this.toolbarspos[i] ={x:i*35+5,y:2,w:30,h:20}; 
+}else{ 
+this.context.fillRect(i*35+5,5,30,20); 
+this.toolbarspos[i] = {x:i*35+5,y:5,w:30,h:20}; 
+} 
+this.context.stroke(); 
+} 
+this.context.fillStyle = curcolor; 
+}, 
+//单击触发的事件方法
+onClick:function(pos){ 
+var p = this.toolbarspos; 
+for(var i in p){ 
+if(pos.x >= p[i].x 
+&& pos.x <= p[i].x+p[i].w 
+&& pos.y >= p[i].y 
+&& pos.y <= p[i].y+p[i].h){ 
+this.curColor = this.option.colors[i]; 
+this.context.strokeStyle = this.curColor; 
+this.ResetDrawAll(); 
+} 
+} 
+} 
+}; 
+new Drawing('can'); 
+</script></body> 
+</html> 
+

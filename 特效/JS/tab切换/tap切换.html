@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+	body,div,ul,li,span{
+		margin: 0;
+		padding:0;
+		list-style: none;
+	}
+	#box{
+		width: 400px;
+		height: 300px;
+		margin: 0 auto;
+		border:1px solid #666;
+	}
+	#myul1{
+		width: 400px;
+		height: 40px;
+		border-bottom: 1px solid #666;
+	}
+	#myul1 li{
+		width: 99px;
+		height: 40px;
+		float: left;
+		border-right: 1px solid #666;
+		background: #999;
+		text-align: center;
+		line-height: 40px;
+		color: #fff;
+		cursor: pointer;
+	}
+	#myul1 .list1{
+		background: #565454;
+		color: #CA6161;
+	}
+	#myul2{
+		width: 400px;
+		height: 260px;
+		overflow: hidden;
+	}
+	#myul2 li{
+		width: 400px;
+		height: 260px;
+		float: left;
+	}
+</style>
+<body>
+<div id='box'>
+	<ul id='myul1'>
+		<li class="list1">00001</li>
+		<li>00002</li>
+		<li>00003</li>
+		<li>00004</li>
+	</ul>
+	<ul id='myul2'>
+		<li>000011111111111111111111111111111111111111111111111</li>
+		<li>000022222222222222222222222222222222222222222222222</li>
+		<li>000033333333333333333333333333333333333333333333333</li>
+		<li>000044444444444444444444444444444444444444444444444</li>
+	</ul>
+</div>
+<script type="text/javascript">	
+var myul1 = document.getElementById('myul1'),
+	myli1 = myul1.getElementsByTagName('li'),
+	myul2 = document.getElementById('myul2'),
+	myli2 = myul2.getElementsByTagName('li');
+
+
+	for (var i = 0; i<myli1.length; i++) {
+		myli1[i].index=i;
+		myli1[i].onclick=function(){
+			for (var i = 0; i < myli1.length; i++) {
+				myli1[i].className='';
+				myli2[i].style.display='none';
+			};
+			this.className='list1';
+			alert(this.index)
+			myli2[this.index].style.display='block';
+		}
+	};
+</script>	
+</body>
+</html>

@@ -1,0 +1,55 @@
+body{margin:0;padding:0;background:#ccc url(about:blank);background-attachment:fixed;}
+#head{width:975px;height:1244px;margin:0 auto;}
+#banner{height:144px;}
+.float{width:746px;
+       height:36px;
+	   margin:0 auto;}
+	   
+.fixed{position:fixed;
+	   _position:absolute;
+	   top:0;
+	   left:50%;
+	   margin-left:-373px;
+	   width:746px;
+       height:36px;}
+	   
+#pics img{display:block;
+         margin:0 auto;}
+		 
+#toTop{width:70px;
+       height:70px;
+	   background:url(../images/toTop.gif) no-repeat;
+	   position:fixed;
+	   bottom:30px;
+	   right:10px;
+	   cursor:pointer;
+	   display:none;
+	   }	
+
+*html #toTop{position:absolute;
+			bottom:0;
+			height:90px;}	
+			
+#topButton{width:20px;
+           height:80px;
+		   background:#333;
+		   color:#fff;
+		   font-size:12px;
+		   position:fixed;
+		   cursor:pointer;
+		   bottom:50px;
+		   right:20px;}
+ 
+
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 

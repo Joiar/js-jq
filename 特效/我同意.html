@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <form name="myForm">
+     <input type="checkbox" name="agreen" onclick="startUsing()"/>我同意<br/>
+     <input type="button" value="前一步" name="pre" disabled="true"/>
+     <input type="button" value="下一步" name="but" disabled="disabled" onclick="document.myForm.pre.disabled=false"/>
+    </form>
+    <script type="text/javascript">
+
+        function startUsing(){
+            if(document.myForm.agreen.checked){//当选中复选框时
+                document.myForm.but.disabled=false; //启用按钮
+
+            }else{
+                document.myForm.but.disabled=true;//禁用按钮
+
+            }
+        }
+
+    </script>
+</body>
+</html>

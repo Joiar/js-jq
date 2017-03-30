@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+	*{
+		margin: 0;
+		padding:0;
+		list-style: none;
+	}
+	#box{
+		width: 975px;
+		height: 345px;
+		margin: 0 auto;
+		background:#b7013e;
+	}
+	#box ul{
+		width: 975px;
+		height: 345px;
+	}
+	#box ul li{
+		width: 135px;
+		height: 345px;
+		overflow: hidden;
+		float: left;
+		cursor: pointer;
+	}
+	#box ul .show{
+		width: 300px;
+	}
+</style>
+<body>
+<div id='box'>
+	<ul>
+		<li class="show"><img src="img/1.jpg" alt=""/></li>
+		<li><img src="img/2.jpg" alt=""/></li>
+		<li><img src="img/3.jpg" alt=""/></li>
+		<li><img src="img/4.jpg" alt=""/></li>
+		<li><img src="img/5.jpg" alt=""/></li>
+		<li><img src="img/6.jpg" alt=""/></li>
+	</ul>
+</div>
+<script type="text/javascript" src='js/move.js'></script>
+<script type="text/javascript">
+var box=document.getElementById('box'),
+	myul=box.getElementsByTagName('ul')[0].getElementsByTagName('li');
+	for (var i = 0; i <myul.length; i++) {
+		myul[i].onmouseover=function(){
+			for (var i = 0; i <myul.length; i++) {
+				startMove(myul[i],'135','width');
+			};
+			startMove(this,'300','width')
+		}
+	};
+</script>
+</body>
+</html>

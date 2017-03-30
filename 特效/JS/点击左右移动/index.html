@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>点击左右移动</title>
+	<style type="text/css">
+*{margin: 0;
+padding:0;
+list-style: none;}
+
+#box{width: 980px;
+height: 455px;
+cursor: pointer;
+margin: 0 auto;
+position: relative;
+margin-top: 50px;
+overflow: hidden;}
+
+#box ul{width:7840px;
+height: 455px;
+margin: 0 auto;}
+
+#box ul li{float: left;}
+
+#box #lef{
+		position: absolute;
+		top: 200px;
+		left: 20px;}
+
+#box #righ{
+		position: absolute;
+		top: 200px;
+		right: 20px;}
+
+
+	</style>
+
+</head>
+<body>
+	<div id="box">
+		<ul>
+			<li><img src="img/banner1.png"></li>
+			<li><img src="img/banner2.png"></li>
+			<li><img src="img/banner3.png"></li>
+			<li><img src="img/banner4.png"></li>
+			<li><img src="img/banner5.png"></li>
+			<li><img src="img/banner6.png"></li>
+			<li><img src="img/banner7.png"></li>
+			<li><img src="img/banner8.png"></li>
+		</ul>
+		<span id='lef'><img src="img/aniul.png"></span>
+		<span id='righ'><img src="img/aniur.png"></span>
+	</div>
+	<script type="text/javascript">
+var box=document.getElementById('box'),
+	myul=box.getElementsByTagName('ul')[0],
+	muli=box.getElementsByTagName('li'),
+
+	lef=box.getElementsByTagName('span')[0],
+	righ=box.getElementsByTagName('span')[1],
+	num=0,
+	timer;
+
+	function move(){
+		myul.style.marginLeft=num*-980+'px';
+	}
+
+	righ.onclick=function(){
+		num++;
+		move();
+		if (num>=7) {
+			num=0;
+		};
+	}
+
+	lef.onclick=function(){
+		
+			num--;
+			move();
+			
+		if (num<=0) {
+			num=8;
+		}
+		
+	}
+
+	timer=setInterval(function(){
+		num++;
+		move();
+		if (num>=7) {
+			num=0;
+		}
+	},1000)
+
+	box.onmouseover=function(){
+		clearInterval(timer)
+	}
+
+	box.onmouseout=function(){
+		timer=setInterval(function(){
+		num++;
+		move();
+		if (num>=7) {
+			num=0;
+		}
+	},1000)
+}
+	</script>
+</body>
+</html>

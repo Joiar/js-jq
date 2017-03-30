@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>自动滚动</title>
+<style type="text/css">
+*{margin:0;padding:0}
+body{font-size:12px;}
+
+.showWrap{width:510px;height:190px;border:2px solid blue;margin:50px auto;overflow:hidden}
+.all{height:190px;width:1530px}
+.all dl{width:160px;height:190px;background:#888;margin-right:10px;float:left;cursor: pointer;}
+.all dl dd{text-align: center;line-height: 35px;}
+</style>
+<script type="text/javascript">
+//通过设置显示区的水平滚动条的值来里面的内容滚动起来
+window.onload=function(){
+var showArea=document.getElementById("showArea")//找到了显示区域
+
+	function scrollPro(){//定义一个函数来实际滚动的效果
+		if(showArea.scrollLeft>=1020){showArea.scrollLeft=0}//510=总内容宽-显示区域宽
+		showArea.scrollLeft+=2//对象.scrollLeft属性是获取或者设置对象的水平滚动条的值  注意，只有该对象具有overflow属性时才有scrollLeft属性
+		
+	}
+	var timer=setInterval(scrollPro,30)
+	showArea.onmouseover=function(){
+		clearInterval(timer);	
+	}
+	showArea.onmouseout=function(){
+		timer=setInterval(scrollPro,30)		
+	}
+}//end onload
+</script>
+</head>
+
+<body>
+
+<div class="showWrap" id="showArea">
+	<div class="all" id="all">
+    	<dl>
+        	<dt><img src="img/img1.jpg" /></dt>
+            <dd>dell本电脑</dd>
+        </dl>
+        <dl>
+        	<dt><img src="img/img2.jpg" /></dt>
+            <dd>穷查理宝典</dd>
+        </dl>
+        <dl>
+        	<dt><img src="img/img3.jpg" /></dt>
+            <dd>美素佳儿奶粉</dd>
+        </dl>
+        <dl>
+        	<dt><img src="img/img4.jpg" /></dt>
+            <dd>HP电脑</dd>
+        </dl>
+        <dl>
+        	<dt><img src="img/img5.jpg" /></dt>
+            <dd>京东礼品卡</dd>
+        </dl>
+        <dl>
+        	<dt><img src="img/img.jpg" /></dt>
+            <dd>NOKIA手机</dd>
+        </dl>
+        <dl>
+        	<dt><img src="img/img1.jpg" /></dt>
+            <dd>dell本电脑</dd>
+        </dl>
+        <dl>
+        	<dt><img src="img/img2.jpg" /></dt>
+            <dd>穷查理宝典</dd>
+        </dl>
+        <dl>
+        	<dt><img src="img/img3.jpg" /></dt>
+            <dd>美素佳儿奶粉</dd>
+        </dl>
+    </div>
+</div>
+</body>
+</html>

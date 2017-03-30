@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	   *{margin: 0;padding: 0}
+	   ul,ol,li{list-style: none;}
+        #box{width: 717px;height: 512px; margin: 10px auto;}
+        #nav{width: 485px;height: 43px;border: 1px solid #ccc; border-left: none; background: #EAEBEA; border-bottom: none; cursor: pointer;}
+        #nav ul li{ float: left;line-height: 43px; width: 120px;height: 43px; text-align: center;border-left: 1px solid #ccc;}
+        #nav ul li.hh{background: #fff;color: #3366A5;}
+        #main{width: 710px;height: 461px;border: 1px solid #ccc;}
+        #m_1{width: 710px;height: 461px; }
+        #m_1 form{margin-left: 100px; margin-top:30px;line-height: 30px;}
+        #m_2{width: 710px;height: 461px; display: none;}
+        #m_2 form{margin-left: 100px;line-height: 30px; margin-top: 20px;}
+        #m_3{width: 710px;height: 461px; display: none;}
+        #m_4{width: 710px;height: 461px; display: none;float: }
+  
+
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div id="nav">
+			<ul>
+				<li>资料更改</li>
+				<li>密码更改</li>
+				<li>头像更改</li>
+				<li>收货地址管理</li>
+			</ul>
+
+		</div>
+       <div id="main">
+       	
+       	<div id="m_1">
+            <form>
+       		<label id="lab">用户名:</label><input type="text"/><br/>
+       		<label>手机:</label><input id="phone" type="text"/><br/>
+
+            <label>性别:</label><input type="radio" name="ss"/>女 <input type="radio" name="ss"/>男 <input type="radio" name="ss"/>保密 <br/>
+
+            <label>所在地:</label>
+            <select name="sheng" id="sheng">
+		       <option value="北京市">北京</option>
+		        <option value="河北省">河北</option>
+
+	        </select>
+	           <select name="city" id="city">
+		       <option value="昌平">昌平区</option>
+		       <option value="海淀">海淀区</option>
+		       <option value="大兴">大兴区</option>
+		       <option value="房山">房山区</option>
+	        </select><br/>
+
+	         <label>个人说明:</label>
+	         <textarea name="" id="" cols="30" rows="10" ></textarea><br/>
+	         <input style="background: pink;" type="submit" value="提交">
+	         </form>
+
+       	</div>
+
+
+       	<div id="m_2">
+       		<form>
+       		<label>初始密码:</label><input type="password"/><br/>
+       		<label>新密码:  </label><input type="password"/><br/>
+            <label>确认密码:</label><input type="password"/><br/>
+            <input style="background: pink;" type="submit" value="保存"> 
+            </form>
+
+ 
+
+       	</div>
+       	<div id="m_3">
+       		<form>
+              <img style="margin-top:50px;margin-left:120px; float:left;" src="pic/1.png"/> 
+              <p style="margin-top:60px;float:left;margin-left:30px;color:red;">从电脑中选择你喜欢的图片<br/><span style="color:#000;">jpg png等格式上传</span><br/><input style="margin-top:40px;" type="image" src="pic/2.png"></p>
+
+
+          </form>
+       	</div>
+       	<div id="m_4">
+       		
+       		tab标签
+       	</div>
+
+
+       </div>
+
+	</div>
+   <script>
+     var lis=document.getElementsByTagName("ul")[0].getElementsByTagName("li"),
+         divs=document.getElementById("main").getElementsByTagName("div"),
+         sheng=document.getElementById("sheng"),
+          city=document.getElementById("city"),
+          phone=document.getElementById("phone")
+          Options=sheng.options;
+           arr=[];
+          arr[0]=["北京","昌平区","昌平"]
+          arr[1]=["北京","海淀区","海淀"]
+          arr[2]=["北京","大兴区","大兴"]
+          arr[3]=["北京","房山区","房山"]
+
+          arr[4]=["河北","石家庄市","石家庄"]
+          arr[5]=["河北","邯郸市","邯郸"]
+          arr[6]=["河北","承德市","承德"]
+          arr[7]=["河北","房山区","房山"]
+          
+      sheng.onchange=function(){
+      	var z=this.selectedIndex;
+      	 var tex = Options[z].text;
+      	 for(var i=city.options.length-1;i>=0;i--){
+      	 	city.remove(i);
+      	 } 
+       for(var i=0;i<arr.length;i++){
+          	if(tex==arr[i][0]){
+          		var newOption=document.createElement("option");
+
+           		newOption=new Option(arr[i][1],arr[i][2]);
+
+           		city.add(newOption,undefined);
+          	}
+       }
+
+      }
+       
+          for(var i=0; i<lis.length; i++){
+          	lis[i].index=i
+
+          	lis[i].onclick=function(){
+          		for(var j=0; j<divs.length; j++){
+          			divs[j].style.display="none"
+          			lis[j].className=""
+          		}
+          		divs[this.index].style.display="block"
+          		this.className="hh"
+
+          	}
+          }
+
+   </script>
+
+</body>
+</html>

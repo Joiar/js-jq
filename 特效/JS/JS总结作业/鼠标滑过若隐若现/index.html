@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标滑过若隐若现</title>
+	<style type="text/css">
+	*{margin: 0;
+		padding: 0;
+		list-style: none;}
+
+	#box{width:680px;
+	height: 450px;
+	margin: 50px auto;
+	border: 1px solid #ccc; }
+
+	#box li{width: 202px;
+		height: 202px;
+		float: left;
+		cursor: pointer;
+		position: relative;
+		border: 1px solid #ccc;
+		margin: 10px 10px;}
+
+	#box li span{width: 200px;
+		height: 200px;
+		position: absolute;
+		text-align: center;
+		line-height: 200px;
+		color: #fff;
+		font-weight: bold;
+		background: rgba(0,0,0,0.6);
+		display: none;
+	}
+	
+	#box li img{width: 200px;
+		height: 200px;}
+	</style>
+</head>
+<body>
+	<ul id="box">
+
+			<li><span>这是第一张图</span><img src="img/1.png"/></li>
+			<li><span>这是第二张图</span><img src="img/2.png"/></li>
+			<li><span>这是第三张图</span><img src="img/3.png"/></li>
+			<li><span>这是第四张图</span><img src="img/4.png"/></li>
+			<li><span>这是第五张图</span><img src="img/5.png"/></li>
+			<li><span>这是第六张图</span><img src="img/6.png"/></li>		
+	</ul>
+	<script type="text/javascript">
+	var box=document.getElementById('box'),
+		myli=box.getElementsByTagName('li');
+
+		for (var i = 0; i<myli.length; i++) {
+			myli[i].onmouseover=function(){
+				this.children[0].style.display='block';
+			}
+			myli[i].onmouseout=function(){
+				this.children[0].style.display='none';
+			}
+		};
+	</script>
+</body>
+</html>

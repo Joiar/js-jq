@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>登录</title>
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+
+	
+	#button{
+		width: 50px;
+		height: 50px;
+		cursor: pointer;
+	}
+
+	#login{width:360px;
+	height: 480px;
+	background: #966;
+	position: absolute;
+	left: 450px;
+	display: none;
+	top: 70px;}
+
+	#login .close{width: 26px;
+		height: 26px;
+		float: right;
+		cursor: pointer;
+		background: url(loginimg/close.jpg);
+		margin: 5px 5px 0 0;}
+
+	#login p{text-align: center;
+		font-size: 24px;
+		padding-top: 50px;
+		font-weight: bold;
+			}
+
+	</style>
+	
+</head>
+<body>
+<div id="button" onclick="showid('login')">登录</div>
+	<div id="login">
+		<div class="close" onclick="$('#login').hide(); $('#layer').remove();"></div><div style="clear:both"></div>
+		<p>登录</p>
+	</div>
+	<img src="loginimg/Capital Normal University.png";>
+	
+	<script type="text/javascript" src='js/jquery.js'></script>
+	<script type="text/javascript" src='js/show.js'></script>
+</body>
+</html>

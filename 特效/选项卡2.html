@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+#apDiv1 {
+	position:absolute;
+	left:179px;
+	top:37px;
+	width:800px;
+	height:60px;
+	z-index:1;
+}
+#apDiv2 {
+	position:absolute;
+	left:179px;
+	top:97px;
+	width:200px;
+	height:153px;
+	z-index:2;
+	visibility: hidden;
+}
+</style>
+<script type="text/javascript">
+function MM_showHideLayers() { //v9.0
+  var i,p,v,obj,args=MM_showHideLayers.arguments;
+  for (i=0; i<(args.length-2); i+=3) 
+  with (document) if (getElementById && ((obj=getElementById(args[i]))!=null)) { v=args[i+2];
+    if (obj.style) { obj=obj.style; v=(v=='show')?'visible':(v=='hide')?'hidden':v; }
+    obj.visibility=v; }
+}
+function MM_changeProp(objId,x,theProp,theValue) { //v9.0
+  var obj = null; with (document){ if (getElementById)
+  obj = getElementById(objId); }
+  if (obj){
+    if (theValue == true || theValue == false)
+      eval("obj.style."+theProp+"="+theValue);
+    else eval("obj.style."+theProp+"='"+theValue+"'");
+  }
+}
+function MM_displayStatusMsg(msgStr) { //v1.0
+  window.status=msgStr;
+  document.MM_returnValue = true;
+}
+</script>
+</head>
+
+<body>
+<div id="apDiv1">
+  <table width="800" border="0" cellpadding="0" cellspacing="0" onfocus="MM_changeProp('td1','','color','#0000','TD')">
+    <tr>
+      <td height="60" align="center" bgcolor="#CC9900" id="td1" onmouseover="MM_showHideLayers('apDiv2','','show');MM_changeProp('td1','','color','#ffffff','TD');MM_displayStatusMsg('欢迎进入本网站');return document.MM_returnValue" onmouseout="MM_showHideLayers('apDiv2','','hide');MM_changeProp('td1','','color','#000000','TD')">新闻中心</td>
+      <td align="center" bgcolor="#CC9900">娱乐频道</td>
+      <td align="center" bgcolor="#CC9900">电脑网络</td>
+      <td align="center" bgcolor="#CC9900">技术支持</td>
+    </tr>
+  </table>
+</div>
+<div id="apDiv2" onmouseover="MM_showHideLayers('apDiv2','','hide');MM_showHideLayers('apDiv2','','show')">
+  <table width="200" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td align="center" bgcolor="#CC6666"><br />
+        <a href="#">军事报道</a><br />
+      <br /></td>
+    </tr>
+    <tr>
+      <td align="center" bgcolor="#CC6666"><br />
+        <a href="#">焦点访谈</a><br />
+      <br /></td>
+    </tr>
+    <tr>
+      <td align="center" bgcolor="#CC6666"><br />
+        <a href="#">新闻事故</a><br />
+      <br /></td>
+    </tr>
+    <tr>
+      <td align="center" bgcolor="#CC6666"><br />
+        <a href="#">新闻联播<br />
+      </a><br /></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

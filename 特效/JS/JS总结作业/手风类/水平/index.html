@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>水平手风</title>
+	<style type="text/css">
+	*{	margin-top: 0;
+		padding: 0;
+		list-style: none;
+		font-family: '微软雅黑';}
+
+	body{width: 100%;
+		height: 100%;}
+
+	#box{width:975px;
+	height: 345px;
+	margin: 50px auto;
+	background: #0a5888; }
+
+	#box ul{width: 975px;
+		height: 345px;}
+
+	#box ul li{width: 135px;
+		height: 345px;
+		float: left;
+		overflow: hidden;
+		cursor:pointer;}
+
+	#box ul .list .xiao{display: none;}
+
+	#box ul .list .da{display: block;}
+
+	</style>
+</head>
+<body>
+	<div id="box">
+		<ul>
+			<li class="list" style="background:#d00000;">
+				<img src="img/1.jpg" class="da">
+				<img src="img/x1.jpg" class="xiao">
+			</li>
+			<li style="background:#770195;">
+				<img src="img/2.jpg" class="da">
+				<img src="img/x2.jpg" class="xiao">
+			</li>
+			<li style="background:#ffbb02;">
+				<img src="img/3.jpg" class="da">
+				<img src="img/x3.jpg" class="xiao">
+			</li>
+			<li style="background:#bb0069;">
+				<img src="img/4.jpg" class="da">
+				<img src="img/x4.jpg" class="xiao">
+			</li>
+			<li style="background:#450091;">
+				<img src="img/5.jpg" class="da">
+				<img src="img/x5.jpg" class="xiao">
+			</li>
+			<li style="background:#b7013e;">
+				<img src="img/6.jpg" class="da">
+				<img src="img/x6.jpg" class="xiao">
+			</li>
+		</ul>
+	</div>
+	<script type="text/javascript" src="js/move.js"></script>
+	<script type="text/javascript">
+		var box=document.getElementById('box'),
+			myul=box.getElementsByTagName('ul')[0],
+			myli=myul.getElementsByTagName('li');
+
+			for (var i=0; i<myli.length; i++) {
+				myli[i].onmouseover=function(){
+					for (var i = 0; i<myli.length; i++) {
+						myli[i].className='';
+						startMove(myli[i],135,'width');
+					};
+					this.className='list';
+					startMove(this,300,'width');
+				
+			}
+		};
+			
+	</script>
+</body>
+</html>

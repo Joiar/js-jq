@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <style>
+        ul ,li ,ol{list-style: none;float: left;margin-right: 6px;}
+
+        ul li{width: 35px;height: 36px; background-image:url("images/pic1.jpg");
+            float: left;text-align: center;line-height: 36px;}
+        ol li{width: 35px;height: 36px; background-image:url("images/pic2.jpg");
+            float: left;text-align: center;line-height: 36px;}
+    </style>
+</head>
+<body>
+<input type="button" value="机选一注" id="btn">
+<input type="button" value="停止" id="btn1">
+<input type="button" value="清空" id="btn2">
+<div class="box">
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+
+    </ul>
+    <ol>
+        <li></li>
+        <li></li>
+    </ol>
+</div>
+<script>
+    var btn1,btn,btn2,uls,ols
+    uls=document.getElementsByTagName("ul")[0].getElementsByTagName("li")
+    ols=document.getElementsByTagName("ol")[0].getElementsByTagName("li")
+    btn=document.getElementById("btn")
+    btn1=document.getElementById("btn1")
+    btn2=document.getElementById("btn2")
+
+
+    function auto(){
+        for(var i=0;i<=uls.length-1;i++){
+            uls[i].innerHTML=1+Math.round(Math.random()*34)
+
+        }
+
+        for(var j=0;j<=ols.length-1;j++){
+
+            ols[j].innerHTML=1+Math.round(Math.random()*34)
+        }
+    }
+    btn.onclick=function(){
+        ss=setInterval(auto,500)
+    }
+
+
+    btn1.onclick=function(){
+        clearInterval(ss)
+    }
+
+    btn2.onclick=function(){
+
+        clearInterval(ss)
+        for(var i=0;i<=uls.length-1;i++){
+            uls[i].innerHTML=""
+
+        }
+
+        for(var j=0;j<=ols.length-1;j++){
+
+            ols[j].innerHTML=""
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,406 @@
+*{margin: 0;
+padding: 0;
+list-style: none;
+font-family: '微软雅黑';}
+
+#box{
+	width: 1002px;
+	height: 716px;
+	margin: 0 auto;
+	position: relative; 
+	margin-top: 4px;}
+
+.top{width: 792px;
+height: 40px;
+float: right;
+background:url(img/bg.jpg) repeat-x top center;
+border-top-right-radius:10px;}
+
+.top ul{width: 790px;
+height: 40px;
+}
+
+
+
+
+
+#top1 ol{position: absolute;
+width: 210px;
+display: none;
+height:500px;
+margin-top: 40px;
+background: #ccc; }
+
+#top1 ol li{width: 208px;
+height: 36px;
+cursor: pointer;
+line-height: 40px;
+font-size: 14px;
+border: 1px solid #969696;}
+
+
+
+.list3{color: red;
+border-right: none;
+background: blue;
+width: 210px;}
+
+
+
+
+
+
+.top ul li{width: 81px;
+height: 40px;
+float: left;
+color: #fff;
+line-height: 40px;
+text-align: center;
+font-size: 14px;
+letter-spacing: 3px;
+border-right: 1px solid #bc2a2a;}
+
+.top ul li a{text-decoration: none;
+color: #fff;}
+
+
+.top_left{width: 210px;
+height: 40px;
+float: left;
+background: url(img/bg1.jpg) repeat-x;
+border-top-left-radius:10px;}
+
+.top_left li{width: 210px;
+height: 40px;
+}
+
+.top_left li p{width: 107px;
+height: 40px;
+line-height: 40px;
+color: #fff;
+display: block;
+float: left;
+margin-left: 20px;
+font-size: 14px;}
+
+.top_left li a{width: 30px;
+	float: right;
+height: 40px;
+margin-top: 12px;
+margin-right: 20px;
+cursor: pointer;}
+
+.top_left li a img{
+	display: inline-block;
+	float: right;}
+
+.cen1{width: 1002px;
+height: 34px;
+float: left;
+border-bottom: 1px solid #dcdcdc;}
+
+.cen1 p{width: 80px;
+	height: 34px;
+line-height: 34px;
+color: #656565;
+float: left;
+font-size: 16px;
+margin-left: 10px;}
+
+.cen1 ul{width: 330px;
+height: 34px;
+float: left;}
+
+.cen1 ul li{width: 40px;
+height: 16px;
+float: left;
+border-right: 1px solid #000;
+text-align: center;
+font-size: 12px;
+color: #656565;
+margin-top: 15px;
+}
+
+.cen1 ul li a{text-decoration: none;color:#656565; }
+
+.cen1left{width: 210px;
+height: 624px;
+float: left;
+margin-top: 10px;
+background: url(img/bg3.jpg) repeat-y;}
+
+.cen1left p{width: 80px;
+height: 35px;
+margin-left: 15px;
+font-size: 14px;
+color: #fff;
+line-height: 35px;
+}
+
+.cen1left .cen1xia{width: 200px;
+height: 585px;
+float: left;
+margin-left: 5px;
+background: #fff;}
+
+.cen1left .cen1xia ul{width: 196px;
+height: 71px;
+border-bottom: 1px dashed #ccc;}
+
+.cen1left .cen1xia ul img{float: left;}
+
+.cen1left .cen1xia ul li {float: left;
+						font-size: 12px;
+						color: #656565;
+						line-height: 15px;
+						margin-left: 17px;
+						margin-top: 10px;}
+
+.cen1left .cen1xia ul li a{text-decoration: none;
+color: #656565;}
+
+.cen1cen{width: 546px;
+height: 624px;
+float: left;
+margin-top: 10px;
+margin-left: 10px;}
+
+
+
+
+#banner{ width:546px;
+height:240px;
+margin:0 auto;
+position: relative;
+border:1px solid #ccc;
+overflow: hidden;
+}
+
+#banner ul{ width:546px;
+height:1440px;
+
+}
+
+#banner ul li{ width:546px;
+height:240px;
+float:left;}
+
+#banner ul li img{ width:546px;
+height:240px;}
+
+#banner ol{
+		width: 200px;
+		height: 20px;
+		top:200px;
+		left: 375px;
+		display: block;
+		background: red;
+		position: absolute;
+		background:rgba(0,0,0,0); 
+	}
+#banner ol li{
+		width: 20px;
+		height: 20px;
+		line-height: 20px;
+		text-align: center;
+		margin: 0px 3px;
+		background: #fff;
+		color: #000;
+		float: left;
+		cursor: pointer;
+		border:1px solid red;
+		border-radius: 5px;
+		}
+
+#banner ol .list{ 
+color:#fff;
+background: red;}
+
+#cen1xia{
+	width: 546px;
+	height: 280px;
+	margin-top: 10px;
+	float: left;
+	border: 1px solid #ccc;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+
+}
+
+#cen1xia ul{width: 544px;
+height: 27px;
+background:url(img/bg4.jpg) repeat-x;
+
+}
+
+#cen1xia ul p{width: 161px;
+	height: 30px;
+	cursor: pointer;
+	float: left;}
+
+#cen1xia ul li{width: 44px;
+height: 18px;
+line-height: 20px;
+float: left;
+text-align: center;
+margin-top: 3px;
+border-right: 1px solid #ccc;
+}
+
+ 
+
+
+.cen1cen #cen1xia ul li.list2{width: 46px;
+height: 20px;
+background: url(img/10_03.png) no-repeat;
+color: #fff;
+font-weight: bold;}
+
+
+
+.cen1cen #cen1xia ul li a{
+	text-decoration: none;
+	color: #656565;
+	font-size: 12px;
+	
+}
+#www{width: 546px;
+	height: 240px;
+	overflow: hidden;
+	 }
+
+
+
+.cen1cen .cen{width:546px;
+height: 240px;
+float: left;
+overflow: hidden;
+margin-left: 10px;}
+
+.cen1cen .cen dl{width: 166px;
+height: 240px;
+margin-left: 10px;
+margin-top: 10px;
+float: left;}
+
+.cen1cen .cen dl dt{float: left;
+border: 1px solid #ccc;
+}
+
+.cen1cen .cen dl dd{color: #656565;
+font-size: 12px;
+cursor: pointer;}
+
+.cen1cen .cen dl dd  p {color: #989898;
+font-size: 12px;
+float: left;}
+
+.cen1cen .cen dl dd span{color: #dc0000;
+float: right;}
+
+#cenright{width: 208px;
+height: 240px;
+float: left;
+border: 1px solid #ccc;
+margin-left: 10px;
+margin-top: 10px;
+border-top-right-radius: 5px;
+border-top-left-radius: 5px;}
+
+#cenright p{width: 208px;
+height: 27px;
+position: relative;
+float: left;
+background: url(img/bg4.jpg) repeat-x;
+}
+
+#cenright p span{float: left;
+line-height: 27px;
+font-size: 14px;
+color: #000;
+font-weight: bold;}
+
+#cenright ul{width: 208px;
+height: 213px;
+display: inline-block;
+float: left;}
+
+#cenright ul li{width: 200px;
+				height: 20px;
+				float: right;
+				color: #656565;
+				font-size: 12px;
+				display: block;
+				line-height: 20px;
+				margin:3px 0 ; }
+
+
+#cenright2{width: 208px;
+height: 280px;
+float: left;
+border: 1px solid #ccc;
+margin-left: 10px;
+margin-top: 10px;
+position:relative;
+border-top-right-radius: 5px;
+border-top-left-radius: 5px;}
+
+#cenright2>p{width: 208px;
+height: 27px;
+position: relative;
+float: left;
+background: url(img/bg4.jpg) repeat-x;
+}
+
+#cenright2>p>span{float: left;
+line-height: 27px;
+font-size: 14px;
+font-weight: bold;
+color: #000;}
+
+.cen3{ width:208px;
+	   height:254px;
+	   cursor:pointer;
+	   float: left;
+	   position: relative;
+	   overflow:hidden;
+	   }
+
+.cen3>ul{width: 630px;
+height: 254px;
+
+}
+
+.cen3 li{width: 208px;
+height: 254px;
+float: left;
+overflow: hidden;
+}
+
+.cen3 li dd{
+	width: 208px;
+font-size: 12px;
+}
+
+.cen3 li dd a{
+	color: #cb0000;
+font-size: 12px;
+line-height:30px;
+float:left;
+}
+	   
+.cen3_left{ position:absolute;
+			left:0;
+			top:120px;
+			cursor:pointer;z-index: 2}
+			
+.cen3_right{ position:absolute;
+			right:0;
+			top:120px;
+			cursor:pointer;z-index: 2}
+
+
+
+
+
+

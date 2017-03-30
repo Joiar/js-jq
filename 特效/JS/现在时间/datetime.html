@@ -1,0 +1,16 @@
+<meta charset="UTF-8">
+<link type="text/css" href="jquery.datetimepicker.css" rel="stylesheet" />
+<script src="jquery.js" type="text/javascript"></script>
+<script src="jquery.datetimepicker.js" type="text/javascript"></script>
+<input type="text" name="inserttime" id="inserttime" value=""/>
+    <script type="text/javascript">
+        $(function () {
+            //  ±º‰…Ë÷√
+            $("#inserttime").datetimepicker({
+				lang:"ch",
+				timepicker:false,
+				format:"Y-m-d",
+				formatDate:"Y-m-d"
+			});
+        });
+    </script>

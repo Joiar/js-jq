@@ -1,0 +1,409 @@
+获取id 
+getElementById()
+getElementsByTagName()
+
+数据类型
+字符串、数字、布尔、对象、Null、Undefined
+
+数组
+创建
+1,var array=[];
+array[0]='a';
+array[1]='b';
+array[2]='c';
+2,var array=[1,2,3,5];
+添加
+push() 将一个或多个新元素添加到数组结尾，并返回数组新长度
+unshift() 将一个或多个新元素添加到数组开始，数组中的元素自动后移，返回数组新长度
+splice(位置,删除的个数,添加的数组) 将一个或多个新元素插入到数组的指定位置，插入位置的元素自动后移，返回"";
+删除
+pop() 移除最后一个元素并返回该元素值
+shift() 移除最前一个元素并返回该元素值，数组中元素自动前移
+splice(deletePos,deleteCount)删除从指定位置deletePos开始的指定数量deleteCount的元素，数组形式返回所移除的元素
+截取和合并
+slice(start, [end]); //以数组的形式返回数组的一部分，注意不包括 end 对应的元素，如果省略 end 将复制 start 之后的所有元素
+拷贝
+slice(0) 返回数组的拷贝数组，注意是一个新的数组，不是指向
+concat() 返回数组的拷贝数组，注意是一个新的数组，不是指向
+元素的排序
+reverse() 反转元素（最前的排到最后、最后的排到最前），返回数组地址
+sort(sortNumber) 对数组元素排序，返回数组地址
+元素的字符串化
+join(separator) 返回字符串，这个字符串将数组的每一个元素值连接在一起，中间用 separator 隔开。
+
+字符串
+concat() – 将两个或多个字符的文本组合起来，返回一个新的字符串。 
+indexOf() – 返回字符串中一个子串第一处出现的索引。如果没有匹配项，返回 -1 。 
+charAt() – 返回指定位置的字符。 
+lastIndexOf() – 返回字符串中一个子串最后一处出现的索引，如果没有匹配项，返回 -1 。  
+substring() – 返回字符串的一个子串。传入参数是起始位置和结束位置。  
+slice() – 提取字符串的一部分，并返回一个新字符串。 
+split() – 通过将字符串划分成子串，将一个字符串做成一个字符串数组。 
+length – 返回字符串的长度，所谓字符串的长度是指其包含的字符的个数。 
+toLowerCase() – 将整个字符串转成小写字母。 
+toUpperCase() – 将整个字符串转成大写字母。
+
+数字取整
+丢弃小数部分,保留整数部分 parseInt(7/2) 
+
+向上取整,有小数就整数部分加1 Math.ceil(7/2) 
+
+四舍五入 Math.round(7/2) 
+
+向下取整 Math.floor(7/2)
+
+变量
+var 全局变量，局部变量
+
+事件
+onload	某个页面或图像被完成加载
+onclick	鼠标点击某个对象
+ondblclick	鼠标双击某个对象
+
+onmouseover	鼠标被移到某元素之上
+onmouseout	鼠标从某元素移开
+
+onfocus	元素获得焦点
+onblur	元素失去焦点
+
+onmousedown	某个鼠标按键被按下
+onmouseup	某个鼠标按键被松开
+onmousemove	鼠标被移动
+
+onsubmit	提交按钮被点击
+
+onkeydown	某个键盘的键被按下
+onkeypress	某个键盘的键被按下或按住
+onkeyup	某个键盘的键被松开
+
+节点
+访问节点
+document.getElementById(id)返回对拥有指定id的第一个对象进行访问
+document.getElementsByName(name)返回带有指定名称的节点集合
+document.getElementsByTagName(tagname)返回带有指定标签名的对象集合
+document.getElementsByClassName(classname)返回带有指定class名称的对象集合
+
+生成节点
+document.createElement(eName)创建一个节点
+document.createAttribute(attrName)对某个节点创建属性
+document.createTextNode(text)
+
+添加节点
+document.insertBefore(newNode,referenceChild)在某个节点前插入节点
+parentNode.appendChild(newNode)给某个节点添加子节点
+
+复制节点
+cloneNode(true | false)复制某个节点
+参数：是否复制原节点的所有属性
+
+删除节点
+parentNode.removeChild(node)删除某个节点的子节点
+node是要删除的节点
+注意：IE会忽略节点间生成的空白文本节点(例如，换行符号)，而Mozilla不会这样做。在删除指定节点的时候不会出错，但是如果要删除最后一个子结点或者是第一个子结点的时候，就会出现问题。这时候，就需要用一个函数来判断首个子结点的节点类型。
+元素节点的节点类型是 1，因此如果首个子节点不是一个元素节点，它就会移至下一个节点，然后继续检查此节点是否为元素节点。整个过程会一直持续到首个元素子节点被找到为止。通过这个方法，我们就可以在 Internet Explorer 和 Mozilla 得到正确的方法。
+
+查找节点
+firstChild第一个子元素
+lastChild最后一个子节点
+childNodes所以子节点有节点问题
+previousSibling 上一个节点
+nextSibling 下一个节点
+
+children子元素
+parentNode父节点
+
+
+
+
+
+
+
+
+修改文本节点
+appendData(data)将data加到文本节点后面
+deleteData(start,length)将从start处删除length个字符
+insertData(start,data)在start处插入字符,start的开始值是0;
+replaceData(start,length,data)在start处用data替换length个字符
+splitData(offset)在offset处分割文本节点
+substringData(start,length)从start处提取length个字符
+替换节点 方法replace(new,old)
+
+属性操作
+getAttribute(name)通过属性名称获取某个节点属性的值
+setAttribute(name,value)修改某个节点属性的值
+removeAttribute(name)删除某个属性
+
+
+函数
+function(){}匿名，有名函数
+
+运算符
+给定 y=5，下面的表格解释了这些算术运算符：
++	加	x=y+2	x=7
+-	减	x=y-2	x=3
+*	乘	x=y*2	x=10
+/	除	x=y/2	x=2.5
+%	求余数 (保留整数)	x=y%2	x=1
+++	累加	x=++y	x=6
+--	递减	x=--y	x=4
+
+给定 x=10 和 y=5
+=	x=y	 	x=5
++=	x+=y	x=x+y	x=15
+-=	x-=y	x=x-y	x=5
+*=	x*=y	x=x*y	x=50
+/=	x/=y	x=x/y	x=2
+%=	x%=y	x=x%y	x=0
+
+比较和逻辑运算符
+给定 x=5，
+==	等于	x==8 为 false
+===	全等（值和类型）	x===5 为 true；x==="5" 为 false
+!=	不等于	x!=8 为 true
+>	大于	x>8 为 false
+<	小于	x<8 为 true
+>=	大于或等于	x>=8 为 false
+<=	小于或等于	x<=8 为 true
+
+
+
+循环
+for(){}
+
+判断
+if(true){}else{}
+
+定时器
+setInterval clearInterval 
+
+时间
+new dete 
+
+获取样式
+if(obj.currenStyle) {
+	return obj.currenStyle[clasName]
+}else{
+	return getComputedStyle(obj,null)[clasName]
+};
+DOM二级
+if (box.attachEvent) {
+	box.attachEvent('onclick',show)
+}else{
+	box.addEventListener('click',show,false)
+};
+
+
+1、事件的定义
+	在文档与浏览器中交互的特定瞬间。
+
+2、事件流
+	定义：页面接收事件的顺序。
+	分类：
+		事件捕获   网景
+		事件冒泡	IE
+		事件捕获 处于目标阶段  事件冒泡    DOM事件流
+
+3、事件处理程序
+	分类：
+		1、HTML事件处理程序：写在结构标签中，通过事件属性来调用JS语句。
+		2、DOM0级：
+			添加  对象.on事件名=fn
+			移除  对象.on事件名=null;
+
+		3、DOM2级
+			添加  addEventListener(事件名,事件处理函数，布尔值)     false冒泡
+			移除  removeEventListener(事件名,事件处理函数，布尔值) 
+
+		4、IE事件处理程序
+			添加  attachEvent(on事件名,事件处理函数)
+			移除  detachEvent(on事件名,事件处理函数) 
+
+4、事件对象:保存与事件相关信息
+	访问方式：var event= e || window.event;
+
+	常用的属性：
+		事件类型 type
+		事件目标
+			target 标准浏览器       srcElement   IE浏览器
+
+			兼容	var eventTarget=event.target || event.srcElement;
+
+	常用方法：
+		停止事件冒泡
+			stopPropagation()标准浏览器
+			cancelBubble=true;IE浏览器
+
+		取消默认形为
+			preventDefault()标准浏览器
+			returnValue=false;IE浏览器		
+
+5、事件类型
+	UI：load   unload  scroll resize error
+	焦点:focus  blur
+	鼠标:click dlbclick mousedown mouseup mouseover mouseout mouseenter mouseleave mousemove
+	键盘:keydown keyup keypress
+
+	不冒泡：focus blur mouseenter mouseleave
+	
+6、内存与性能
+	事件委托
+	var event = e || window.event,
+	tar = event.target || event.srcElement;
+	if (tar.className='myp') {
+		alert('我是p')
+	};
+
+	移除事件处理程序
+
+
+DOM节点信息包括节点类型（nodeType）、节点名称（nodeName）和节点值（nodeValue）
+元素节点	每一个HTML标签都是一个元素节点，如 <div> 、 <p>、<ul>等	1
+属性节点	元素节点（HTML标签）的属性，如 id 、class 、name 等。	2
+文本节点	元素节点或属性节点中的文本内容。	3
+注释节点	表示文档注释，形式为<!-- comment text -->。	8
+文档节点	表示整个文档（DOM 树的根节点，即 document ）	9
+
+
+
+
+偏移量
+元素宽高 offsetWidth  offsetHeight offsetTop offsetLeft
+客户区大小 document.documentElement.clientWidth   document.documentElement.clientHeight
+鼠标 clientX clientY
+滚动条到顶端的距离 scrollTop 
+
+
+
+
+document.documentElement.scrollTop
+if (document.documentElement.scrollTop) {
+	alert(document.documentElement.scrollTop)
+}else{
+	alert(document.body.scrollTop)
+};
+
+闭包
+function bibao(){
+	var a=120;
+	function bibao2(){
+		//alert(a)
+	}
+	return bibao2;
+}
+var foo = bibao();
+foo()
+
+
+键盘事件
+document.onkeydown=function(e){
+	var ev = e || window.event;
+	if (ev.keyCode == 13){console.log('是')};
+}
+空格32 回车13 退格8 左上右下37-40 a-z65-90 键盘数字 48-57
+
+
+正则判断
+reg
+var reg = //;
+/r, /n代表回车和换行符
+
+/t制表符
+
+//代表 "/" 本身
+
+/^ 匹配 ^ 符号本身
+
+/$ 匹配 $ 符号本身
+
+/. 匹配小数点（.）本身
+
+\d 任意一个数字，0~9 中的任意一个
+
+\w 任意一个字母或数字或下划线，也就是 A~Z,a~z,0~9,_ 中任意一个
+
+\s 包括空格、制表符、换页符等空白字符的其中任意一个
+
+. 小数点可以匹配除了换行符（/n）以外的任意一个字符
+{n} 表达式重复n次，比如："/w{2}" 相当于 "/w/w"；"a{5}" 相当于 "aaaaa"
+
+{m,n} 表达式至少重复m次，最多重复n次，比如："ba{1,3}"可以匹配 "ba"或"baa"或"baaa"
+
+{m,} 表达式至少重复m次，比如："/w/d{2,}"可以匹配 "a12","_456","M12344"...
+
+? 匹配表达式0次或者1次，相当于 {0,1}，比如："a[cd]?"可以匹配 "a","ac","ad"
+
++ 表达式至少出现1次，相当于 {1,}，比如："a+b"可以匹配 "ab","aab","aaab"...
+
+* 表达式不出现或出现任意次，相当于 {0,}，比如："/^*b"可以匹配 "b","^^^b"...
+
+| 左右两边表达式之间 "或" 关系，匹配左边或者右边
+
+( )(1). 在被修饰匹配次数的时候，括号中的表达式可以作为整体被修饰
+(2). 取匹配结果的时候，括号中的表达式匹配到的内容可以被单独得到
+
+/S 匹配所有非空白字符（"/s" 可匹配各个空白字符）
+
+/D 匹配所有的非数字字符
+
+/W 匹配所有的字母、数字、下划线以外的字符
+
+/B 匹配非单词边界，即左右两边都是 "/w" 范围或者左右两边都不是 "/w" 范围时的字符缝
+
+^ 匹配输入字符串的开始位置。要匹配 "^" 字符本身，请使用 "/^"
+
+$ 匹配输入字符串的结尾位置。要匹配 "$" 字符本身，请使用 "/$"
+
+( ) 标记一个子表达式的开始和结束位置。要匹配小括号，请使用 "/(" 和 "/)"
+
+[ ] 用来自定义能够匹配 '多种字符' 的表达式。要匹配中括号，请使用 "/[" 和 "/]"
+
+{ } 修饰匹配次数的符号。要匹配大括号，请使用 "/{" 和 "/}"
+
+. 匹配除了换行符（/n）以外的任意一个字符。要匹配小数点本身，请使用 "/."
+
+? 修饰匹配次数为 0 次或 1 次。要匹配 "?" 字符本身，请使用 "/?"
+
++ 修饰匹配次数为至少 1 次。要匹配 "+" 字符本身，请使用 "/+"
+
+* 修饰匹配次数为 0 次或任意次。要匹配 "*" 字符本身，请使用 "/*"
+
+| 左右两边表达式之间 "或" 关系。匹配 "|" 本身，请使用 "/|"
+
+
+
+整数或者小数：^[0-9]+\.{0,1}[0-9]{0,2}$
+只能输入数字："^[0-9]*$"。
+只能输入n位的数字："^\d{n}$"。
+只能输入至少n位的数字："^\d{n,}$"。
+只能输入m~n位的数字：。"^\d{m,n}$"
+只能输入零和非零开头的数字："^(0|[1-9][0-9]*)$"。
+只能输入有两位小数的正实数："^[0-9]+(.[0-9]{2})?$"。
+只能输入有1~3位小数的正实数："^[0-9]+(.[0-9]{1,3})?$"。
+只能输入非零的正整数："^\+?[1-9][0-9]*$"。
+只能输入非零的负整数："^\-[1-9][]0-9"*$。
+只能输入长度为3的字符："^.{3}$"。
+只能输入由26个英文字母组成的字符串："^[A-Za-z]+$"。
+只能输入由26个大写英文字母组成的字符串："^[A-Z]+$"。
+只能输入由26个小写英文字母组成的字符串："^[a-z]+$"。
+只能输入由数字和26个英文字母组成的字符串："^[A-Za-z0-9]+$"。
+只能输入由数字、26个英文字母或者下划线组成的字符串："^\w+$"。
+验证用户密码："^[a-zA-Z]\w{5,17}$"正确格式为：以字母开头，长度在6~18之间，只能包含字符、数字和下划线。
+验证是否含有^%&',;=?$\"等字符："[^%&',;=?$\x22]+"。
+只能输入汉字："^[\u4e00-\u9fa5]{0,}$"
+验证Email地址："^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$"。
+验证InternetURL："^http://([\w-]+\.)+[\w-]+(/[\w-./?%&=]*)?$"。
+验证电话号码："^(\(\d{3,4}-)|\d{3.4}-)?\d{7,8}$"正确格式为："XXX-XXXXXXX"、"XXXX-XXXXXXXX"、"XXX-XXXXXXX"、"XXX-XXXXXXXX"、"XXXXXXX"和"XXXXXXXX"。
+验证身份证号（15位或18位数字）："^\d{15}|\d{18}$"。
+验证一年的12个月："^(0?[1-9]|1[0-2])$"正确格式为："01"～"09"和"1"～"12"。
+验证一个月的31天："^((0?[1-9])|((1|2)[0-9])|30|31)$"正确格式为；"01"～"09"和"1"～"31"。 匹配中文字符的正则表达式： [\u4e00-\u9fa5]
+
+匹配双字节字符(包括汉字在内)：[^\x00-\xff]
+
+应用：计算字符串的长度（一个双字节字符长度计2，ASCII字符计1）
+String.prototype.len=function(){return this.replace(/[^\x00-\xff]/g,"aa").length;}
+
+匹配空行的正则表达式：\n[\s| ]*\r
+
+匹配html标签的正则表达式：<(.*)>(.*)<\/(.*)>|<(.*)\/>
+
+匹配首尾空格的正则表达式：(^\s*)|(\s*$)

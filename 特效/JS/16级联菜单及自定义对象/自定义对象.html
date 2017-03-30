@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>自定对象</title>
+</head>
+
+<body>
+<script type="text/javascript">
+//常规的自定义对象的方法   属性:程序中使用到的数据   方法：程序中如何处理使用这些数据
+/*var cat={//创建自定义对象
+	name:"花花",//属性1名：属性值,属性2名：属性值
+	age:3,
+	color:"白色",//属性与方法之间也要用逗号隔开
+	output:function(){//方法名:function(){语句体}
+		if(this.name=="小白"||this.name=="小花"){//在对象内部使用属性格式：this.属性名
+			alert("这只小猫的名字是："+this.name+"已经"+this.age+"岁了，它是"+this.color+"的。")
+		}else{
+			alert("张老太没有这只猫")
+			}
+	}
+	
+}
+//alert(cat.age)
+cat.output()*/
+//构造函数法（常用）    将函数作为对象来使用就叫构造函数法
+function cat(name){//构造函数
+	this.name=name;//定义属性的格式：this.属性名=属性值 以分号来结束
+	this.age=3;
+	this.color="白色";
+	this.output=function(){
+		if(this.name=="小白"||this.name=="小花"){//在对象内部使用属性格式：this.属性名
+			alert("这只小猫的名字是："+this.name+"已经"+this.age+"岁了，它是"+this.color+"的。")
+		}else{
+			alert("张老太没有这只猫")
+			}
+	}	//定义方法的格式：this.方法名=function(){语句体}	
+}
+/*var obj=new cat("花花");//实例化对象的格式： var 对象名=new 构造函数名()
+var obj2=new cat("小白")*/
+//alert(obj.name)
+//obj2.output()
+//构造函数的优势，可以传参，可以实例化多个对象，可以继承别的构造函数   面向对象：封装，多态，继承
+function cat2(){
+	this.fish=function(){
+		alert(this.name+"吃鱼")	
+	}	
+}
+cat2.prototype=new cat("小黑猫");//构造函数.prototype(继承)=被继承的构造函数  
+// 语法格式  继承的函数名.prototype=new 被继承的函数名();
+var obj3=new cat2();
+
+</script>
+</body>
+</html>

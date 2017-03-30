@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>163注册页</title>
+<style type="text/css">
+*{margin:0;padding:0}
+body{font-size:12px;background:#F1F1F1}
+a img{border:none}
+a{text-decoration:none;color:#000}
+input{vertical-align:middle}
+ul li{list-style:none}
+
+.header,.main,.footer{width:956px;margin:0 auto;}
+.header{height:123px;}
+.main{height:468px;border:1px solid #D1D1D1;width:700px;background:#fff;padding:50px 0 0 254px;}
+.main div{height:28px;}
+.main div img{vertical-align:middle}
+.main select{vertical-align:middle}
+.main div label{display:inline-block;width:73px;text-align:right;margin-right:8px;}
+.main div label em{color:#FF4800;margin-right:6px;}
+.main div input{width:305px;padding-top:6px;height:20px;padding-left:5px;border:1px solid #C1C1C1}
+.main .emil{width:190px;margin-right:5px;color:#999;}
+.main p{height:28px;margin-top:10px;padding-left:81px;color:#999;line-height:28px;}
+.main p a{color:#1D50A2}
+.main .agree{color:#000}
+.main .agree input{margin-top:-3px;}
+.footer{height:50px;text-align:center;line-height:50px;color:#666}
+.footer a{color:#666}
+.right{color:green}
+.wrong{color:red}
+</style>
+<script type="text/javascript">
+window.onload=function(){
+	var allElement=document.login.elements;
+	for(i=0;i<allElement.length;i++){
+		allElement[i].onblur=function(){
+			
+			name=this.getAttribute("name");
+			spanLen=this.parentNode.getElementsByTagName("span").length;//在父元素中检测span的个数			
+			if(spanLen>0){
+				//删除span
+				this.parentNode.removeChild(this.parentNode.lastChild)	
+			}//end if
+			if(name=="eml"){
+				var regEml=/^\w{6,18}$/
+				if(!regEml.test(this.value)){
+					span=document.createElement("span");
+					span.innerHTML="输入错误！";
+					span.className="wrong"
+					this.parentNode.appendChild(span);
+					this.style.background="#f9c"	
+				}else{
+					span=document.createElement("span");
+					span.innerHTML="输入正确！";
+					span.className="right"
+					this.parentNode.appendChild(span);	
+					this.style.background="#fff"
+					
+				}	
+			}//end if eml
+			if(name=="pwd"){
+				var regPwd=/^.{6,16}$/
+				if(!regPwd.test(this.value)){
+					span=document.createElement("span");
+					span.innerHTML="输入错误！";
+					span.className="wrong"
+					this.parentNode.appendChild(span);	
+					this.style.background="#f9c"
+				}else{
+					span=document.createElement("span");
+					span.innerHTML="输入正确！";
+					span.className="right"
+					this.parentNode.appendChild(span);	
+					this.style.background="#fff"
+					
+				}	
+			}//end pwd	
+			
+			if(name=="pwdTwo"){
+				if(this.value.length==0||this.value!=document.login.pwd.value){
+					span=document.createElement("span");
+					span.innerHTML="输入错误！";
+					span.className="wrong"
+					this.parentNode.appendChild(span);
+					this.style.background="#f9c"	
+				}else{
+					span=document.createElement("span");
+					span.innerHTML="输入正确！";
+					span.className="right"
+					this.parentNode.appendChild(span);
+					this.style.background="#fff"	
+					
+				}	
+			}//end pwdT		
+			
+						
+			if(name=="mobil"){
+				var regMobil=/^1[3|4|5|8]\d{9}$/
+				if(!regMobil.test(this.value)){
+					span=document.createElement("span");
+					span.innerHTML="输入错误！";
+					span.className="wrong"
+					this.parentNode.appendChild(span);	
+					this.style.background="#f9c"
+				}else{
+					span=document.createElement("span");
+					span.innerHTML="输入正确！";
+					span.className="right"
+					this.parentNode.appendChild(span);	
+					this.style.background="#fff"
+				}	
+			}//end mobil		
+				
+		}//end onblur
+		/*allElement[i].onkeyup=function(){
+			this.blur()	;
+			this.focus()
+		}*/
+		allElement[i].onfocus=function(){
+			if(this.value=="建议输入手机号码注册")	{this.value=""};
+			this.style.background="#ffc"
+		}
+	}//end for	
+	
+	document.getElementById("send").onmousedown=function(){
+		for(i=0;i<allElement.length;i++){
+			if(allElement[i].name!="sel"){
+				allElement[i].focus();
+				allElement[i].blur();
+			}
+		}
+		
+	}//end onmousedown
+	
+	document.getElementById("send").onmouseup=function(){
+		var ErrNum=0;
+		spanlength=document.login.getElementsByTagName("span")
+		for(i=0;i<spanlength.length;i++){
+			if(spanlength[i].className=="wrong"){
+				ErrNum++;	
+			}
+				
+		}
+		
+		if(ErrNum==0){
+			document.login.submit()	
+		}
+		
+		
+	}//end onmouseup
+	
+}//end onload
+
+
+</script>
+</head>
+
+<body>
+<div class="header"><img src="img/header.png" /></div>
+<div class="main" id="loginForm">
+	<form name="login" action="aa.php" method="post">
+    	<div><label><em>*</em>邮件地址</label><input type="text" name="eml" value="建议输入手机号码注册" class="emil" />@
+        	<select name="sel">
+            	<option value="1">163.com</option>
+                <option value="2">qq.com</option>
+                <option value="3">yahoo.com</option>
+                <option value="4">126.com</option>
+            </select>
+        </div>
+        <p>6-18个字符，可使用字母、数字、下划线。推荐以手机号码直接注册</p>
+        
+        <div><label><em>*</em>密码</label><input type="password" name="pwd" /></div>
+        <p>6~16个字符，区分大小写</p>
+        
+         <div><label><em>*</em>确认密码</label><input type="password" name="pwdTwo" /></div>
+         <p>请再次输入密码</p>
+         
+         <div><label>手机号码</label><input type="text" name="mobil" /></div>
+         <p>密码遗忘或被盗时，可通过手机短信取回密码</p>
+         
+         <div><label><em>*</em>验证码</label><input type="text" name="code" /><img src="img/yzm.png" /></div>
+         <p>请输入图片中的字符<a href="#">看不清楚？换张图片</a></p>
+         
+         <p class="agree"><input type="checkbox" value="yes" checked="checked" />同意"<a href="#">服务条款</a>"和"<a href="#">隐私权保护和个人信息利用政策</a>"</p>
+  		 <p><input type="image" src="img/sub.png" id="send" onclick="return false" /></p>
+   
+    </form>
+</div>
+<div class="footer"><a href="#">关于网易</a>  <a href="#">关于网易免费邮</a>  <a href="#">邮箱官方博客</a>  <a href="#">客户服务</a>  <a href="#">隐私政策</a>  |  网易公司版权所有 © 1997-2012 </div>
+</body>
+</html>

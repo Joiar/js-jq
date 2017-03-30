@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>通过常规方法创建自定义对象</title>
+</head>
+
+<body>
+<div class="one">class名是one的DIV</div>
+<ul>
+	<li id="list">aaaa</li>
+    <li>aaaa</li>
+    <li>aaaa</li>
+    <li>aaaa</li>
+</ul>
+<p class="one">class名为one的段落</p>
+<script type="text/javascript">
+var obj={
+	getClass:function(cssName){//通过class名获取元素方法
+		//先找到页面中的全部元素，然后再去判断这些元素的class名称是不是cssName,如果是我们把它存放到数组
+		//1、找页面中的所有元素
+		allElement=document.getElementsByTagName("*");
+		//alert(allElement.length)
+		//2、判断这些元素的class名称是不是cssName
+		var cssArray=[]
+		for(i=0;i<allElement.length;i++){//通过循环全部判断
+			if(allElement[i].className==cssName){//判断class名称是不是cssName
+				cssArray.push(allElement[i])//将找到元素添加到数组中
+			}
+		}
+		return cssArray;//将数组做为结果返回给函数
+	},
+	getId:function(id){
+		return document.getElementById(id);	
+	}	
+}
+obj.getClass("one")[0].style.background="red"
+obj.getId("list").style.background="green"
+</script>
+</body>
+</html>

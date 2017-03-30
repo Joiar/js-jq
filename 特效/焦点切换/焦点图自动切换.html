@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>焦点图自动切换</title>
+<style type="text/css">
+*{margin: 0;padding: 0;list-style: none;}
+#ganbenglunbo{
+	width: 560px;
+	height: 300px;
+	margin: 100px auto;
+	position: relative;
+}
+#ganbenglunbo .tupian ul li{display: none;}
+#ganbenglunbo .tupian ul li.cur{display: block;}
+#ganbenglunbo .anniu #zuoanniu{
+	position: absolute;
+	top: 130px;
+	left: 10px;
+	background: url(images/png24.png) 0 0 no-repeat;
+	width: 45px;
+	height: 45px;
+	cursor: pointer;
+}
+#ganbenglunbo .anniu #youanniu{
+	position: absolute;
+	top: 130px;
+	right: 10px;
+	background: url(images/png24.png) 0 -48px no-repeat;
+	width: 45px;
+	height: 45px;
+	cursor: pointer;
+}
+#ganbenglunbo .heikuang{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 40px;
+	background: url(images/hei.png);
+}
+#ganbenglunbo .heikuang h3{
+	font: 18px/40px "微软雅黑","宋体";
+	color:white;
+	padding-left: 20px;
+	float: left;
+}
+#ganbenglunbo .heikuang ul{
+	float: right;
+	width: 142px;
+	padding-top: 14px;
+}
+#ganbenglunbo .heikuang ul li{
+	float: left;
+	width: 14px;
+	height: 14px;
+	margin-right: 10px;
+	background: url(images/png24.png) no-repeat -23px -125px;
+	cursor: pointer;
+}
+#ganbenglunbo .heikuang ul li.cur{background-position:  -9px -125px;}
+</style>
+<script type="text/javascript">
+	window.onload = function(){
+		//先得到所有元素
+		var myzuidabox = document.getElementById("ganbenglunbo");
+		var myleftbut = document.getElementById("zuoanniu");
+		var myrightbut = document.getElementById("youanniu");
+		var mytulis = document.getElementById("tupianul").getElementsByTagName("li");
+		var mydianlis =  document.getElementById("xiaoyuandianul").getElementsByTagName("li");
+		var mybiaoti = document.getElementById("biaoti");
+		var myimgs = document.getElementById("tupianul").getElementsByTagName("img");
+		var nowimg = 0;	//信号量，表示当前的图片编号。从0开始
+		var mytimer = 0;
+		huanzi();	//一上来就调用换字函数，目的是让第0张图片的alt，显示出来。
+		//自动轮播
+		window.clearInterval(mytimer);
+		mytimer = window.setInterval(dong,2000);
+		//给最大的盒子添加mouseover监听，鼠标进入，停止自动轮播
+		myzuidabox.onmouseover = function(){
+			window.clearInterval(mytimer);
+		}
+		myzuidabox.onmouseout = function(){
+			window.clearInterval(mytimer);
+			mytimer = window.setInterval(dong,2000);
+		}
+		//右按钮的事件监听
+		myrightbut.onclick = dong;
+		function dong(){
+			//先折腾信号量
+			if(nowimg < mytulis.length - 1){
+				nowimg ++;
+			}else{
+				nowimg = 0;
+			}
+
+			huantu();	//调用换图函数
+			shezhixiaoyuandian(); //调用小圆点函数
+			huanzi();
+		}
+		//左按钮的事件监听
+		myleftbut.onclick = function(){
+			if(nowimg > 0){
+				nowimg --;
+			}else{
+				nowimg = mytulis.length - 1;
+			}
+			
+			huantu();	//调用换图函数
+			shezhixiaoyuandian(); //调用小圆点函数
+			huanzi();
+		}
+		//用循环语句，为所有的小圆点增加mouseover的监听
+		for(var i = 0 ; i <= mydianlis.length - 1 ; i++){
+			mydianlis[i].index = i;
+			mydianlis[i].onmouseover = function(){
+				//碰到每个小圆点做的事情
+				//先改变信号量
+				nowimg = this.index;
+				//调用函数
+				huantu();
+				shezhixiaoyuandian();
+				huanzi();
+			}
+		}
+		//换图函数：
+		function huantu(){
+			//让所有的li都去掉cur
+			for(var i = 0 ; i <= mytulis.length - 1 ; i++){
+				mytulis[i].className = "";
+			}
+			//信号量是几，就把cur交给第几个li
+			mytulis[nowimg].className = "cur";
+		}
+		//设置小圆点函数
+		function shezhixiaoyuandian(){
+			//让所有的li都去掉cur
+			for(var i = 0 ; i <= mytulis.length - 1 ; i++){
+				mydianlis[i].className = "";
+			}
+			//信号量是几，就把cur交给第几个li
+			mydianlis[nowimg].className = "cur";
+		}
+		//换字函数
+		function huanzi(){
+			mybiaoti.innerHTML = myimgs[nowimg].alt;
+		}
+	}
+</script>
+</head>
+<body>
+	<div id="ganbenglunbo">
+		<div class="tupian">
+			<ul id="tupianul">
+				<li class="cur"><a href="#"><img src="images/0.jpg" alt="母狮子好啊！！"/></a></li>
+				<li><a href="#"><img src="images/1.jpg" alt="外滩真好看！！"/></a></li>
+				<li><a href="#"><img src="images/2.jpg" alt="湖水！！！！！"/></a></li>
+				<li><a href="#"><img src="images/3.jpg" alt="印度啊！！！！！"/></a></li>
+				<li><a href="#"><img src="images/4.jpg" alt="山羊！"/></a></li>
+			</ul>
+		</div>
+		<div class="anniu">
+			<span id="zuoanniu"></span>
+			<span id="youanniu"></span>
+		</div>
+		<div class="heikuang">
+			<h3 id="biaoti">**********</h3>
+			<ul id="xiaoyuandianul">
+				<li class="cur"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

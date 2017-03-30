@@ -1,0 +1,38 @@
+<!DOCTYPE>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>动态内容切换</title>
+</head>
+
+<body>
+<form name="myForm">
+	面值：
+    <select name="price" onchange="changeContent(this)">
+    	<option value="10">10元</option>
+        <option value="50">50元</option>
+        <option value="100">100元</option>
+        <option value="300">300元</option>
+        <option value="500">500元</option>
+    </select>
+    <span style="color:#C30;font-weight:600;" id="span">10</span>
+
+</form>
+<script type="text/javascript">
+    function changeContent(obj){
+    	var idx=obj.selectedIndex
+
+    	switch(idx){
+    		case 0:	document.getElementById("span").innerHTML="10";break;
+    		case 1:	document.getElementById("span").innerHTML="45.8-49.8";break;
+    		case 2:	document.getElementById("span").innerHTML="90.8-99.8";break;
+    		case 3:	document.getElementById("span").innerHTML="245.8-299.8";break;
+    		case 4:	document.getElementById("span").innerHTML="455.8-495.8";
+    	}
+
+
+
+    }
+</script>
+</body>
+</html>

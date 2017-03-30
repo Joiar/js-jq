@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>滚屏文字</title>
+    <style>
+        *{margin:0;padding:0}
+        li{list-style:none}
+
+        #box{width:300px;height:40px;background:#ccc;margin:100px auto;overflow: hidden; }
+        #box li{line-height:40px;}
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li>字字字字1</li>
+        <li>字字字字2</li>
+        <li>字字字字3</li>
+        <li>字字字字4</li>
+        <li>字字字字5</li>
+    </ul>
+</div>
+<script type="text/javascript">
+	var box = document.getElementById('box'),
+		myul = box.children[0],
+		times = 1;
+		timer = null;
+		
+		function gundon(){
+			if (times == -40) {
+				myul.appendChild(myul.children[0]);
+				myul.style.marginTop='0';
+				times = 0;
+			}else{
+				myul.style.marginTop=times+'px';
+				times--;
+				setTimeout(gundon,30);
+			};
+			
+		}
+		timer = setInterval(gundon,2000);
+		box.onmouseover = function(){
+			clearInterval(timer)
+		}
+		box.onmouseout = function(){
+			timer = setInterval(gundon,2000);
+		}
+</script>
+</body>
+</html>

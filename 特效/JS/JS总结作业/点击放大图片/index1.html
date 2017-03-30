@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>图片点击增大</title>
+<style>
+*{ margin:0;
+padding:0;
+list-style:none;}
+
+#box{ width:1200px;
+height:600px;
+position:relative;
+margin:0 auto;
+margin-top:60px;}
+
+#box ul{ width:1200px;
+height:600px;
+float:left;}
+
+#box ul li{ width:300px;
+height:200px;
+float:left;}
+
+#box ul li img{ width:300px;
+height:200px;
+display:block;
+cursor:pointer;}
+
+#box p{ width:500px;
+height:300px;
+margin-left:300px;
+background:rgba(0,0,0,0.4);
+position:absolute;
+display:none;
+}
+
+#box p span{ width: 30px;
+	height: 30px;
+	display: inline-block;
+	font-size: 24px;
+	text-align: center;
+	line-height: 30px;
+	background:#CC9;
+	margin-top:-30px;
+	margin-left: 600px;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+#box p img{ width:600px;
+height:400px;
+margin:0 auto;
+display:block;}
+
+
+</style>
+</head>
+
+<body>
+<div id="box">
+	<ul>
+    	<li><img src="img/1.jpg" alt="" /></li>
+        <li><img src="img/2.jpg" alt="" /></li>
+        <li><img src="img/3.jpg" alt="" /></li>
+        <li><img src="img/4.jpg" alt="" /></li>
+        <li><img src="img/5.jpg" alt="" /></li>
+        <li><img src="img/6.jpg" alt=""/></li>
+        <li><img src="img/7.jpg" alt="" /></li>
+        <li><img src="img/8.jpg" alt="" /></li>
+    </ul>
+    
+    <p><span>x</span><img src="" /></p>
+    
+    </div>
+
+<script>
+		var box=document.getElementById('box'),
+			myli=box.getElementsByTagName('ul')[0].getElementsByTagName('li'),
+			myp=box.getElementsByTagName('p')[0],
+			mysp=myp.getElementsByTagName('span')[0],
+			myp_img=myp.getElementsByTagName('img')[0];
+			
+			for(var i=0; i<myli.length; i++){
+				myli[i].onclick=function(){
+				myp.style.display='block';
+				myp_img.src=this.children[0].src;}
+				
+				mysp.onclick=function(){
+					myp.style.display='none';
+					}
+				}
+			
+				
+				
+	    /*		  myli[1].onclick=function(){
+				myp.style.display='block';
+				myp_img.src=this.children[0].src;}
+				
+				myli[2].onclick=function(){
+				myp.style.display='block';
+				myp_img.src=this.children[0].src;}
+				
+				myli[3].onclick=function(){
+				myp.style.display='block';
+				myp_img.src=this.children[0].src;}
+				
+				myli[4].onclick=function(){
+				myp.style.display='block';
+				myp_img.src=this.children[0].src;}
+				
+				myli[5].onclick=function(){
+				myp.style.display='block';
+				myp_img.src=this.children[0].src;}
+				
+				myli[6].onclick=function(){
+				myp.style.display='block';
+				myp_img.src=this.children[0].src;}
+				
+				myli[7].onclick=function(){
+				myp.style.display='block';
+				myp_img.src=this.children[0].src;}*/
+
+
+</script>
+</body>
+</html>

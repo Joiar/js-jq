@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>动态下拉列表</title>
+</head>
+
+<body>
+<form name="myForm">
+	<select name="yea"></select>年
+    <select name="mon"></select>月
+    <select name="day"></select>日
+</form>
+<script type="text/javascript">
+//1、动态为下列列表添加选项
+	for(y=1900;y<=2013;y++){//通过循环为年份添加选项从1900-2013年
+		document.myForm.yea.options.add(new Option(y,y))//列表.options列表项对象  add(new Option(内容，值))添加新的列表项
+	}
+	for(m=1;m<=12;m++){//通过循环为月份添加选项
+		document.myForm.mon.options.add(new Option(m+"月",m))//列表.options列表项对象  add(new Option(内容，值))添加新的列表项
+	}
+	for(d=1;d<=31;d++){//通过循环为日期添加选项
+		document.myForm.day.options.add(new Option(d+"日",d))//列表.options列表项对象  add(new Option(内容，值))添加新的列表项
+	}
+//2、设置当前日期为默认选项
+//获取年，月，日
+var today=new Date();//创建一个系统时间对象
+years=today.getFullYear();//获取年份
+months=today.getMonth();//获取月份
+days=today.getDate();//获取日期
+//alert(years+"年"+months+"月"+days)
+//设置系统的月份为默认选项
+	document.myForm.mon.options[months].selected=true;//document.myForm.day.options[1].selected值为true时，选中，false不选
+//设置系统的日期为默认选项
+document.myForm.day.options[days-1].selected=true;
+//设置系统的年份为默认选项
+
+for(i=0;i<document.myForm.yea.options.length;i++){
+	if(document.myForm.yea.options[i].text==years)	{
+			document.myForm.yea.options[i].selected=true;
+	}
+}//.text获取下拉列表项的内容
+</script>
+</body>
+</html>

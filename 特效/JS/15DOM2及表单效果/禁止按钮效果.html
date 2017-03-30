@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>表单效果</title>
+</head>
+
+<body>
+<form name="myForm">
+ <input type="checkbox" name="agreen" onclick="startUsing()"/>我同意<br/>
+ <input type="button" value="前一步" name="pre" disabled="true"/>
+ <input type="button" value="下一步" name="but" disabled="disabled" onclick="document.myForm.pre.disabled=false"/><!--disabled禁止属性，值(true disabled)  false -->
+ <input type="text" disabled="true"/>
+ <textarea rows="6"  disabled="true"></textarea>
+</form>
+<script type="text/javascript">
+	//当选中复选框时，激活按钮
+	//alert(document.myForm.agreen.checked)
+	function startUsing(){
+		if(document.myForm.agreen.checked){//当选中复选框时
+			document.myForm.but.disabled=false;	//启用按钮
+			
+		}else{
+			document.myForm.but.disabled=true;//禁用按钮
+			
+		}	
+	}
+	
+</script>
+</body>
+</html>

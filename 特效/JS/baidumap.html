@@ -1,0 +1,116 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<meta name="apple-moblie-web-app-capable" content="YES" />
+<title>在百度地图上绘制路线</title>
+<style type="text/css">
+	html { height:100% }
+	body { height:100%; margin:0px; padding:0px }
+	#container { height:100% }
+</style>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.4"></script>
+<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>   
+<script type="text/javascript">
+function initialize() {
+	geolocation = navigator.geolocation;	//html5 获取GPS
+	if(geolocation){						//如果支持
+		geolocation.getCurrentPosition(getPositionSuccess, getPositionError);	//获取GPS坐标，成功则触发 getPositionSuccess 函数
+		geolocation.watchPosition(watchPositionSuccess, getPositionError);		//监听GPS改变
+		geolocation.getCurrentPosition(getPositionSuccess, getPositionError);	//获取GPS坐标，成功则触发 getPositionSuccess 函数
+		msg('正在获取GPS');
+		timer = setTimeout(function(){
+			msg('无法获取GPS');
+			setGPS();
+		}, 5000);
+	}else{
+		msg('无法获取GPS');
+		setGPS();
+	}
+}
+function getPositionSuccess( position ){
+	msg('成功获取GPS');
+	clearTimeout(window.timer);
+	init(position.coords.longitude, position.coords.latitude);
+}
+function watchPositionSuccess( position ){
+	msg('成功更新GPS');
+	
+	//真实经纬度转成百度坐标
+	translateGPS(position.coords.longitude, position.coords.latitude);
+}
+function getPositionError(error){
+	msg('无法获取GPS');
+	setGPS();
+	switch(error.code){
+		case error.TIMEOUT :
+			msg( " 连接超时，请重试 " );
+			break;
+		case error.PERMISSION_DENIED :
+			msg( " 您拒绝了使用位置共享服务，查询已取消 " );
+			break;
+		case error.POSITION_UNAVAILABLE :
+			msg( " 非常抱歉，我们暂时无法为您所在的星球提供位置服务 " );
+			break;
+	}
+}
+function setGPS(){
+	init(121.44383474, 31.27366856);			//手工设定GPS
+}
+function init(lng, lat){						//初始化地图，手工设定及自动设定都要到这里
+	bm = new BMap.Map("container");				//创建百度地图
+	var point = new BMap.Point(lng, lat); 		//创建点坐标
+	bm.centerAndZoom(point, 17);				//初始化图片级别，最大分辨是18级
+	bm.addControl(new BMap.NavigationControl());//创建控制按钮
+	translateGPS(lng, lat)						//真实GPS经纬度转成百度坐标
+}
+
+function translateGPS(lng, lat){
+	//按国家测绘局规定，真实经纬度需要加密后才能使用
+	
+	var gpsPoint = new BMap.Point(lng, lat); // 创建点坐标
+	setTimeout(function(){
+		BMap.Convertor.translate(gpsPoint,0,translateCallback);     //真实经纬度转成百度坐标
+	}, 2000);
+}
+
+//坐标转换完之后的回调函数
+function translateCallback(point){
+	draw(point)
+}
+
+function draw(point){
+	window.marker && bm.clearOverlay(marker);			//刷新标注点
+	marker = new BMap.Marker(point);					//创建标注点
+    bm.addOverlay(marker);								//添加到地图上
+    bm.panTo(point);									//中心移动到此点
+	
+	var lnglat;
+	var posArray = [];
+	bm.addEventListener("click",function(e){			//地图绑定点击
+		lnglat=e.point;  								//点击获得百度坐标
+		posArray.push(lnglat);							//记住这个点
+
+		bm.panTo(lnglat);								//并将中心移动到这个点
+		if(posArray.length==1){							//如果只有一个点则画个圈
+			circle = new BMap.Circle(posArray[0],30);	//创建圆
+			bm.addOverlay(circle);						//添加圆
+		}else{											//积攒了多个点，则画折线
+			polyline = new BMap.Polyline(posArray);		//创建折线
+			bm.addOverlay(polyline);					//添加折线
+		}
+
+	});
+}
+
+function msg(s){
+	document.title = s;
+}
+</script>
+</head>  
+
+<body onload="initialize()">  
+	<div id="container"></div>
+</body>
+</html>

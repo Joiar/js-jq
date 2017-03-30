@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>计算器</title>
+    <link rel="stylesheet" type="text/css" href="./calculator.css">
+    <script type="text/javascript" src="./calculator.js"></script>
+</head>
+<body>
+    <div class="all">
+        <div class="box">
+            <input type="text" id="screenName" name="screenName" class="boxs">
+        </div>
+        <div class="keys">
+            <!-- 第一行 -->
+            <input type="button" id="C" onclick="clearNum()" value="AC" class="btns" style="border-left:0px; "><input onclick="jsq(this.id)" sid="AC+／-" value="+／-" type="button" name="" class="btns"><input onclick="jsq(this.id)" id="%" value="%" type="button" name="" class="btns"><input onclick="jsq(this.id)" id="/" value="/" type="button" class="btnss">
+        </div>
+        <div class="keys">
+            <!-- 第二行 -->
+            <input type="button" onclick="jsq(this.id)" id="7" value="7" class="btns" style="border-left:0px; "><input onclick="jsq(this.id)" id="8" value="8" type="button" name="" class="btns"><input onclick="jsq(this.id)" id="9" value="9" type="button" name="" class="btns"><input onclick="jsq(this.id)" id="*" type="button" value="*" name="" class="btnss">
+        </div>
+        <div class="keys">
+            <!-- 第三行 -->
+            <input onclick="jsq(this.id)" type="button" id="4" value="4" class="btns" style="border-left:0px; "><input onclick="jsq(this.id)" id="5" value="5" type="button" class="btns"><input onclick="jsq(this.id)" id="6" value="6" type="button" class="btns"><input id="-" onclick="jsq(this.id)" type="button" value="-" class="btnss">
+        </div>
+        <div class="keys">
+            <!-- 第四行 -->
+            <input onclick="jsq(this.id)" type="button" id="1" value="1" name="" class="btns" style="border-left:0px; "><input onclick="jsq(this.id)" id="2" value="2" type="button" name="" class="btns"><input onclick="jsq(this.id)" id="3" value="3" type="button" class="btns"><input onclick="jsq(this.id)" id="+" type="button" value="+" class="btnss">
+        </div>
+        <div class="keys">
+            <!-- 第五行 -->
+            <input onclick="jsq(this.id)" type="button" id="0" value="0" name="" class="btns" style="border-left:0px; width: 116px;"><input onclick="jsq(this.id)" value="." type="button" name="" class="btns"><input id="eva" onclick="eva()" value="=" type="button" class="btnss">
+        </div>
+    </div>
+</body>
+</html>

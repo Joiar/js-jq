@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+	<title>无标题</title>
+</head>
+<style type="text/css">
+	*{
+		margin: 0;
+		padding:0;
+		list-style: none;
+	}
+	#box{
+		width: 150px;
+		height: 150px;
+		background: red;
+		position: absolute;
+		left: 0;
+		top: 0;
+		cursor: move;
+	}
+	#hufu{
+		width: 30px;
+		height:30px;
+		position: absolute;
+		top:50px;
+		right:50px;
+		font-size: 12px;
+		text-align: center;
+		line-height: 30px;
+		background: blue;
+		cursor: pointer;
+		color: #fff;
+		display: none;
+	}
+	#da{
+		width: 20px;
+		height:20px;
+		position: absolute;
+		background: #999;
+		top: 10px;
+		right: 20px;
+		font-size: 12px;
+		line-height: 20px;
+		text-align: center;
+	}
+	#xa{
+		width: 20px;
+		height:20px;
+		position: absolute;
+		background: #999;
+		top: 10px;
+		right: 50px;
+		font-size: 12px;
+		line-height: 20px;
+		text-align: center;
+	}
+</style>
+<body>
+<div id='hufu'>恢复</div>
+<div id="box">
+	<ul>
+		<li id='xa'>小</li>
+		<li id='da'>大</li>
+	</ul>
+</div>
+<script type="text/javascript">
+	var box = document.getElementById('box'),
+		xa = document.getElementById('xa'),
+		da = document.getElementById('da'),
+		hufu = document.getElementById('hufu');
+	box.onmousedown=function(e){
+		var event = e || window.event,
+			disX = event.clientX-box.offsetLeft,
+			disY = event.clientY-box.offsetTop;
+		document.onmousemove=function(e){
+			var event = e || window.event,
+				L = event.clientX-disX,
+				T = event.clientY-disY;
+				if (L<=0) {L=0};
+				if (T<=0) {T=0};
+				if (L>=document.documentElement.clientWidth-box.offsetWidth) {
+					L=document.documentElement.clientWidth-box.offsetWidth
+				};
+				if (T>=document.documentElement.clientHeight-box.offsetHeight) {
+					T=document.documentElement.clientHeight-box.offsetHeight
+				};
+			box.style.left=L+'px';
+			box.style.top=T+'px';
+		}
+		document.onmouseup=function(){
+			document.onmousemove=null;
+		}
+	}
+	xa.onclick=function(){
+		box.style.display='none';
+		hufu.style.display='block';
+	}
+	hufu.onclick=function(){
+		box.style.display='block';
+		hufu.style.display='none';
+	}
+	da.onclick=function(){
+		if (box.offsetWidth=='150') {
+			box.style.width=document.documentElement.clientWidth+'px';
+			box.style.height=document.documentElement.clientHeight+'px';
+			box.style.left='0';
+			box.style.top='0';
+
+		}else{
+			box.style.width='150px';
+			box.style.height='150px';
+		}
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+	*{
+		margin: 0;
+		padding:0;
+		list-style: none;
+	}
+	#box{
+		width: 975px;
+		height: 345px;
+		margin: 0 auto;
+		background:#b7013e;
+	}
+	#box ul{
+		width: 975px;
+		height: 345px;
+	}
+	#box ul li{
+		width: 135px;
+		height: 345px;
+		overflow: hidden;
+		float: left;
+		cursor: pointer;
+	}
+	#box ul .show .xiao{
+		display: none;
+	}
+	#box ul .show .da{
+		display: block;
+	}
+	.da{
+		display: none;
+	}
+</style>
+<body>
+	<div id='box'>
+		<ul>
+			<li class="show" style="background:#d00000;width:300px;">
+				<img src="img/x1.jpg" class='xiao'/>
+				<img src="img/1.jpg" class='da'/></li>
+			<li style="background:#770195;">
+				<img src="img/x2.jpg" alt="" class='xiao'/>
+				<img src="img/2.jpg" alt="" class='da'/></li>
+			<li style="background:#ffbb02;">
+				<img src="img/x3.jpg" alt="" class='xiao'/>
+				<img src="img/3.jpg" alt="" class='da'/></li>
+			<li style="background:#bb0069;">
+				<img src="img/x4.jpg" alt="" class='xiao'/>
+				<img src="img/4.jpg" alt="" class='da'/></li>
+			<li style="background:#450091;">
+				<img src="img/x5.jpg" alt="" class='xiao'/>
+				<img src="img/5.jpg" alt="" class='da'/></li>
+			<li style="background:#b7013e;">
+				<img src="img/x6.jpg" alt="" class='xiao'/>
+				<img src="img/6.jpg" alt="" /></li>
+		</ul>
+	</div>
+<script type="text/javascript" src='js/move.js'></script>
+<script type="text/javascript">
+var box=document.getElementById('box'),
+	myul=box.getElementsByTagName('ul')[0].getElementsByTagName('li');
+	for (var i = 0; i < myul.length; i++) {
+		myul[i].onmouseover=function(){
+			for (var i = 0; i < myul.length; i++) {
+				startMove(myul[i],'135','width');
+				myul[i].className='';
+			};
+			
+			startMove(this,'300','width');
+			this.className='show';
+		}
+	};
+</script>
+</body>
+</html>

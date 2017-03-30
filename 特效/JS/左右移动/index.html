@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>拖拽</title>
+<style>
+*{ 
+margin:0;
+padding:0;
+list-style:none;
+}
+
+#box{ 
+width:450px;
+height:300px;
+margin:0 auto;
+background:#0C9;
+margin-top:50px;
+}
+
+#box ul{ width:200px;
+height:250px;
+float:left;
+border:1px solid #000;}
+
+#box ul li{ width:198px;
+height:39px;
+float:left;
+line-height:40px;
+cursor:pointer;
+border:1px solid #CCC;
+text-align:center;
+}
+
+
+#box ol{ width:200px;
+height:250px;
+float:right;
+border:1px solid #000;}
+
+#box ol li{ width:198px;
+height:39px;
+float:right;
+cursor:pointer;
+line-height:40px;
+border:1px solid #CCC;
+text-align:center;
+}
+
+
+.list{ background:#F00;}
+	
+
+</style>
+</head>
+
+<body>
+<div id="box">
+    <ul>
+            <li class="list">小狗</li>
+            <li>小猪</li>
+            <li>小猫</li>
+            <li>小牛</li>
+            <li>小张</li>
+            <li>小琦</li>
+   </ul>
+   		
+    
+   <ol> 
+   
+   </ol>
+   
+        <input type="button" value="向右" id="input1" / style="width:50px; float:left; height:30px; margin-left:10px; margin-top:10px; cursor:pointer;">
+        <input type="button" value="删除" id="input2" / style="width:50px;float:left; height:30px; margin-left:10px; margin-top:10px; cursor:pointer;">
+        
+        
+        <input type="button" value="向左" id="input3" / style="width:50px; float:right; height:30px; margin-right:10px; margin-top:10px;">
+        <input type="button" value="删除" id="input4" / style="width:50px;float:right; height:30px; margin-right:10px; margin-top:10px;">
+ 
+</div>
+
+<script>
+	var box=document.getElementById('box'),
+		myul=box.getElementsByTagName('ul')[0],
+		myul_li=box.getElementsByTagName('ul')[0].getElementsByTagName('li'),
+		
+		
+		myol=box.getElementsByTagName('ol')[0],
+		myol_li=box.getElementsByTagName('ol')[0].getElementsByTagName('li'),
+		
+		myinp1=document.getElementById('input1'),
+		myinp2=document.getElementById('input2'),
+
+
+		myinp3=document.getElementById('input3'),
+		myinp4=document.getElementById('input4');
+		
+		
+			for (var i = 0; i < myul_li.length ; i++) 
+				myul_li[i].onclick=function(){
+					for (var i = 0; i < myul_li.length ; i++) {
+				myul_li[i].className='';
+			};
+			this.className='list';
+		}
+		
+		
+		myinp1.onclick=function()
+		{
+			for (var i = 0; i < myul_li.length ; i++) 
+				{
+				if(myul_li[i].className=='list')
+				{
+					myul_li[i].className='';
+				myol.appendChild(myul_li[i]);
+				
+				};	
+				};	
+		}
+		
+		
+		myinp2.onclick=function()
+		{
+			for (var i = 0; i < myul_li.length ; i++) 
+				{
+				if(myul_li[i].className=='list')
+				{
+				myul_li[i].remove();
+				};	
+				};	
+		};
+		
+		
+		myinp3.onclick=function()
+		{
+			for (var i = 0; i < myol_li.length ; i++) 
+				{
+				if(myol_li[i].className=='list')
+				{
+					myol_li[i].className='';
+				myul.appendChild(myol_li[i]);
+				
+				};	
+				};	
+		}
+		
+		
+		myinp4.onclick=function()
+		{
+			for (var i = 0; i < myol_li.length ; i++) 
+				{
+				if(myol_li[i].className=='list')
+				{
+				myol_li[i].remove();
+				};	
+				};	
+		}
+	
+
+</script>
+
+</body>
+</html>
+                         
+                         
+                         

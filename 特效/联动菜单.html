@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>无标题</title>
+</head>
+<body>
+<form>
+	<select id='sle'>
+		<option value="内蒙">内蒙</option>
+		<option value="北京">北京</option>
+		<option value="哈尔滨">哈尔滨</option>
+	</select>
+	<select id='diq'>
+		<option value="赤峰">赤峰市</option>
+		<option value="包头">包头市</option>
+		<option value="呼市">呼和浩特</option>
+	</select>
+</form>
+
+</body>
+<script type="text/javascript">
+var sle = document.getElementById('sle'),
+	opt = sle.options,
+	diq = document.getElementById('diq');
+	arr = [];
+	arr[0] = ['内蒙','赤峰市','赤峰']
+	arr[1] = ['内蒙','包头市','包头']
+	arr[2] = ['内蒙','呼和浩特','呼市']
+
+	arr[3] = ['北京','昌平区','昌平']
+	arr[4] = ['北京','海淀区','海淀']
+	arr[5] = ['北京','朝阳区','朝阳']
+	arr[6] = ['北京','大兴区','大兴']
+
+	arr[7] = ['哈尔滨','道里区','道里']
+	arr[8] = ['哈尔滨','道外区','道外']
+	arr[9] = ['哈尔滨','牡丹江','牡丹江']
+	arr[10] = ['哈尔滨','五常市','五常']
+
+
+	sle.onchange=function(){
+		var zin = this.selectedIndex;
+		var txt = opt[zin].text;
+		diq.innerHTML='';
+		for (var i = 0; i <arr.length; i++) {
+			if (txt == arr[i][0]){
+				var newop = new Option(arr[i][1],arr[i][2]);
+				diq.add(newop,undefined);
+			}
+		};
+	}
+</script>
+</html>

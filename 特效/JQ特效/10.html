@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="jquery-1.10.2.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#start").click(function(){
+            $("div").animate({left:'100px'},3000);
+            $("div").animate({fontSize:'4em'},3000);
+            });
+
+        $("#stop").click(function(){
+            $("div").stop();
+            });
+
+        $("#stop2").click(function(){
+            $("div").stop(true);
+            });
+
+        $("#stop3").click(function(){
+            $("div").stop(true,true);
+            });
+
+    });
+</script>
+</head>
+<body>
+
+<button id="start">开始</button>
+<button id="stop">停止</button>
+<button id="stop2">停止所有</button>
+<button id="stop3">停止动画，但完成动作</button>
+<div style="background:pink;height:100px;width:200px;text-align:center;line-height:100px;position:absolute;">hello</div>
+
+</body>
+</html>

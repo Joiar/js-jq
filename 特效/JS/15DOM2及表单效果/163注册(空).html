@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>163注册页</title>
+<style type="text/css">
+*{margin:0;padding:0}
+body{font-size:12px;background:#F1F1F1}
+a img{border:none}
+a{text-decoration:none;color:#000}
+input{vertical-align:middle}
+ul li{list-style:none}
+
+.header,.main,.footer{width:956px;margin:0 auto;}
+.header{height:123px;}
+.main{height:468px;border:1px solid #D1D1D1;width:700px;background:#fff;padding:50px 0 0 254px;}
+.main div{height:28px;}
+.main div img{vertical-align:middle}
+.main select{vertical-align:middle}
+.main div label{display:inline-block;width:73px;text-align:right;margin-right:8px;}
+.main div label em{color:#FF4800;margin-right:6px;}
+.main div input{width:305px;padding-top:6px;height:20px;padding-left:5px;border:1px solid #C1C1C1}
+.main .emil{width:190px;margin-right:5px;color:#999;}
+.main p{height:28px;margin-top:10px;padding-left:81px;color:#999;line-height:28px;}
+.main p a{color:#1D50A2}
+.main .agree{color:#000}
+.main .agree input{margin-top:-3px;}
+.footer{height:50px;text-align:center;line-height:50px;color:#666}
+.footer a{color:#666}
+.main .btn{height:37px;line-height:37px;}
+.main .btn input{width:107px;height:37px;background:url(img/sub.png) no-repeat;border:0;cursor:pointer}
+.right{background:url(img/yes.gif) no-repeat;color:green;padding-left:20px;}
+.wrong{background:url(img/no.jpg) no-repeat;color:red;padding-left:20px;}
+</style>
+<script type="text/javascript">
+window.onload=function(){
+	allEle=document.login.elements;//document.表单name名.elements获取所有的表单元素,它是一个数组
+	
+	for(i=0;i<allEle.length-2;i++){
+		//1、为文本框添加聚集事件，执行的动作是：改变背景色，让第一个文本框清空默认文字
+		allEle[i].onfocus=function(){//为所有的表单元素添加聚集事件
+			this.style.background="#ffc"//改变背景色
+			if(this.value=="建议输入手机号码注册"){this.value="";}//清空文本框的值
+			
+		}//end focus	
+		
+		//2、为所有的文本框添加取消聚集事件，执行的动作的是验证表单，通过背景色恢复成白色否则为红色
+		allEle[i].onblur=function (){//onblur取消聚焦事件
+			nam=this.getAttribute("name");//获取当前事件对象的name属性
+			var Span=this.parentNode.getElementsByTagName("span")//获取DIV下的所有SPAN得到的是一个数组
+			if(Span.length>0){//通过数组的长度来判断是否有span存在
+				for(i=0;i<Span.length;i++){//通过循环删除所有的span
+					this.parentNode.removeChild(Span[i])	
+				}
+			}
+			
+			
+			if(nam=="eml"){//验证的是邮箱地址
+				var emlReg=/^\w{6,18}$/;
+				if(emlReg.test(this.value)){//验证匹配
+					span=document.createElement("span");//创建一个SPAN标签用来存放提示文字
+					span.innerHTML="输入正确";//为标签添加内容
+					span.className="right";//为标签应用样式
+					this.parentNode.appendChild(span);
+				}else{//不匹配
+					span=document.createElement("span");//创建一个SPAN标签用来存放提示文字
+					span.innerHTML="输入错误";//为标签添加内容
+					span.className="wrong";//为标签应用样式
+					this.parentNode.appendChild(span);
+				}
+			}//end 验证
+			
+			
+			if(nam=="pwd"){//验证的密码
+				var pwdReg=/^.{6,16}$/;
+				if(pwdReg.test(this.value)){//验证匹配
+					span=document.createElement("span");//创建一个SPAN标签用来存放提示文字
+					span.innerHTML="输入正确";//为标签添加内容
+					span.className="right";//为标签应用样式
+					this.parentNode.appendChild(span);
+				}else{//不匹配
+					span=document.createElement("span");//创建一个SPAN标签用来存放提示文字
+					span.innerHTML="输入错误";//为标签添加内容
+					span.className="wrong";//为标签应用样式
+					this.parentNode.appendChild(span);
+				}
+			}//end 验证
+			
+			if(nam=="pwdTwo"){//验证的确认密码
+				if(this.value==document.login.pwd.value&&this.value.length>0){//验证匹配
+					span=document.createElement("span");//创建一个SPAN标签用来存放提示文字
+					span.innerHTML="输入正确";//为标签添加内容
+					span.className="right";//为标签应用样式
+					this.parentNode.appendChild(span);
+				}else{//不匹配
+					span=document.createElement("span");//创建一个SPAN标签用来存放提示文字
+					span.innerHTML="输入错误";//为标签添加内容
+					span.className="wrong";//为标签应用样式
+					this.parentNode.appendChild(span);
+				}
+			}//end 验证
+			
+			if(nam=="mobil"){//验证手机号
+				var MobilReg=/^1[3|4|5|8]\d{9}$/;
+				if(MobilReg.test(this.value)){//验证匹配
+					span=document.createElement("span");//创建一个SPAN标签用来存放提示文字
+					span.innerHTML="输入正确";//为标签添加内容
+					span.className="right";//为标签应用样式
+					this.parentNode.appendChild(span);
+				}else{//不匹配
+					span=document.createElement("span");//创建一个SPAN标签用来存放提示文字
+					span.innerHTML="输入错误";//为标签添加内容
+					span.className="wrong";//为标签应用样式
+					this.parentNode.appendChild(span);
+				}
+			}//end 验证
+			
+			
+		}//end onblue
+		allEle[i].onkeyup=function (){//按键弹起事件
+			this.blur()//给当前对象激活取消聚焦事件
+			this.focus()//给当前对象激活聚焦事件
+		}
+		
+	}//end fora
+	
+	
+	//给按钮来添加验证
+	document.getElementById("send").onmousedown=function(){//onmousedown按下鼠标键
+		for(i=0;i<allEle.length-1;i++){//通过循环给文本框激活取消聚焦事件
+			if(allEle[i].name!="sel")
+				allEle[i].focus()
+				allEle[i].blur()
+			
+		}
+	}//end onmousedown
+	//当按钮弹起后，根据验证的结果来决定是否提交 
+	document.getElementById("send").onmouseup=function(){//onmouseup按下弹起
+		//判断span的CLASS是不是wrong，如果是wrong的话就说明有错误，用一个计数来统计有多少个wrong
+		var ErrNum=0;//错误计数器
+		//找到所有的span
+		var allSpan=document.login.getElementsByTagName("span")//通过表单域来统计所有的span
+		for(i=0;i<allSpan.length;i++){
+			if(allSpan[i].className=="wrong"){//是否有错误
+				ErrNum++;//错误计数器加1
+			}
+		}// end for
+		if(ErrNum==0){//判断是否有错误
+			document.login.submit()//document.表单名.submit()提交表单
+		}
+	}//end mouseup
+}
+
+</script>
+</head>
+
+<body>
+<div class="header"><img src="img/header.png" /></div>
+<div class="main" id="loginForm">
+	<form name="login" action="aa.php" method="post">
+    	<div><label><em>*</em>邮件地址</label><input type="text" name="eml" value="建议输入手机号码注册" class="emil" />@
+        	<select name="sel">
+            	<option value="1">163.com</option>
+                <option value="2">qq.com</option>
+                <option value="3">yahoo.com</option>
+                <option value="4">126.com</option>
+            </select>
+            
+        </div>
+        <p>6-18个字符，可使用字母、数字、下划线。推荐以手机号码直接注册</p>
+        
+        <div><label><em>*</em>密码</label><input type="password" name="pwd" /></div>
+        <p>6~16个字符，区分大小写</p>
+        
+         <div><label><em>*</em>确认密码</label><input type="password" name="pwdTwo" /></div>
+         <p>请再次输入密码</p>
+         
+         <div><label>手机号码</label><input type="text" name="mobil" /></div>
+         <p>密码遗忘或被盗时，可通过手机短信取回密码</p>
+         
+         <div><label><em>*</em>验证码</label><input type="text" name="code" /><img src="img/yzm.png" /></div>
+         <p>请输入图片中的字符<a href="#">看不清楚？换张图片</a></p>
+         
+         <p class="agree"><input type="checkbox" value="yes" checked="checked" />同意"<a href="#">服务条款</a>"和"<a href="#">隐私权保护和个人信息利用政策</a>"</p>
+  		 <p class="btn"><input type="button"  id="send" value=""/></p>
+   
+    </form>
+</div>
+<div class="footer"><a href="#">关于网易</a>  <a href="#">关于网易免费邮</a>  <a href="#">邮箱官方博客</a>  <a href="#">客户服务</a>  <a href="#">隐私政策</a>  |  网易公司版权所有 © 1997-2012 </div>
+</body>
+</html>

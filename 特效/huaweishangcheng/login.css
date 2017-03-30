@@ -1,0 +1,386 @@
+*{margin:0;padding:0;}
+.all{
+	width: 100%;
+	background-color: #F1F1F1;
+}
+/*头部样式*/
+.top{
+	width:100%;
+	height: 67px;
+	background-color: #333;
+}
+.top-center{
+	/*background: url('./image/logo2.png') no-repeat left center;*/
+	width: 998px;
+	height: 67px;
+	line-height: 50px;
+	margin: 0 auto;
+	padding-top: 8px;
+}
+.logo2{
+	width: 167px;
+	height: 43px;
+	float: left;
+}
+.SC b{
+	float: left;
+	color: #fff;
+}
+.SC p{
+	float: left;
+	color: #fff;
+	font-size: 23px;
+	margin-left: 5px;
+	font-family: "arial";
+}
+
+ /*中间部分 */
+ .center{
+ 	width: 100%;
+ 	height: 1245px;
+ }
+ .content-top{
+ 	width: 988px;
+ 	height: 33px;
+ 	margin: 0 auto;
+ 	margin-top: 29px;
+ 	background:url('./image/main_reg.png') no-repeat;
+  }
+/* .content-top-left{
+ 	width: 139px;
+ 	height: 33px;
+ 	float: left;
+ }*/
+ .content-top a{
+ 	display: inline-block;
+ 	width: 99px;
+ 	height: 26px;
+ 	line-height: 16px;
+ 	color: #fff;
+ 	font-size: 12px;
+ 	padding-left: 40px;
+ 	padding-top: 7px;
+ 	text-decoration: none;
+
+ }
+ .content-top .youxiang{
+ 	padding-left: 50px;
+ }
+ .content-top-right{
+ 	width: 134px;
+ 	height: 12px;
+ 	font-size: 12px;
+ 	float: right;
+ 	margin-top: 7px;
+ 	display: block;
+ 	margin-right: 15px;
+
+
+ }
+ .span{
+ 	position:relative;
+ 	left:40px;
+ }
+
+ .content-top-right a{
+ 	width: 25px;
+ 	height: 12px;
+ 	font-size: 12px;
+ 	float: right;
+ 	padding:0;
+ 	margin: 0;
+ 	/*line-height: 1;*/
+ 	color:red;
+ }
+ .content-top-right a:link{
+ 	color:red;
+ }
+
+ .content{
+ 	width: 988px;
+ 	height: 1181px;
+ 	margin: 0 auto;
+ 	background-color: #fff;
+ }
+/*注册华为帐号*/
+ .reg-title{
+ 	width: 794px;
+ 	height: 28px;
+ 	margin: 0 auto;
+ 	padding-top: 52px;
+ 	font-size: 28px;
+ 	color: #000;
+ }
+ .jieshao{
+ 	width: 794px;
+ 	height: 32px;
+ 	margin: 0 auto;
+ 	color: #999;
+ 	line-height: 16px;
+ 	margin-top: 19px;
+ 	font-size:14px;
+ }
+ /*水平线*/
+ .hr{
+ 	width: 794px;
+ 	margin: 0 auto;
+ 	padding-top: 30px;
+ 	border-bottom: 1px solid #e0e0e0;
+ 	/*text-align: center;*/
+ }
+ .zhanghao{
+ 	width:794px;
+ 	height:14px;
+ 	padding-top: 30px;
+ 	margin:0 auto;
+ 	font-size:14px;
+ 	font-weight:bold;
+ 	color:#333;
+ }
+ .content-yz{
+ 	width:794px;
+ 	height:16px;
+ 	line-height:16px;
+ 	color:#999;
+ 	padding-top: 19px;
+ 	margin:0 auto;
+ 	font-size:14px;
+ }
+ /*表单部分*/
+
+.BG{
+	width: 794px;
+	height: 179px;
+	margin:0 auto;
+}
+.biaog{
+	width: 794px;
+	margin:0 auto;
+	height: 32px;
+	padding-top: 19px;
+	
+}
+.node{
+	width:110px;
+	height:36px;
+	font-size:14px;
+	color:#999;
+	line-height: 32px;
+}
+.zg{
+	width: 170px;
+	height: 100%;
+	display: inline-block;
+}
+.mz{
+	width: 170px;
+	display:inline-block;
+}
+.xiala{
+	width: 163px;
+	height: 36px;
+	line-height: 36px;
+	padding-left: 10px;
+	border: 1px solid #c5c5c5;
+}
+.tt{
+	width: 163px;
+	height: 36px;
+	line-height: 36px;
+	padding-left: 10px;
+	border: 1px solid #c5c5c5;
+	float: left;
+	display: block;
+}
+/*.yz{
+	width: 741px;
+	height: 34px;
+	display: block;
+	float: 
+	margin-top: 30px;
+}*/
+.yz{
+	width: 550px;
+	height: 34px;
+	margin:0 auto;
+}
+.node-yz{
+	width:110px;
+	height:36px;
+	font-size:14px;
+	color:#999;
+	line-height: 32px;
+	padding-top: 30px;
+}
+.mz-yz{
+	width: 170px;
+	height: 100%;
+	display:block;
+	float: left;
+}
+.tt-yz{
+	width: 153px;
+	height: 36px;
+	line-height: 36px;
+	padding-left: 10px;
+	border: 1px solid #c5c5c5;
+	float: left;
+	display: block;
+	margin-top: 30px;
+}
+.btn{
+	width: 175px;
+	height: 34px;
+	line-height: 34px;
+	font-size: 14px;
+	text-align: center;
+	background-color: #f2f2f2;
+	border:1px solid #dcdcdc;
+	/*float: left;*/
+	/*display:block;*/
+	cursor:pointer;
+	/*margin-left: 10px;*/
+}
+.node-btn{
+	width: 170px;
+	display: block;
+	float: left;
+	margin-top: 30px;
+}
+/*设置登录密码*/
+
+ .mima-nr{
+ 	width: 794px;
+ 	height: 16px;
+ 	line-height: 16px;
+ 	color: #999;
+ 	margin:0 auto;
+ 	font-size: 14px;
+ 	margin-top: 19px;
+ }
+  .content-mima{
+ 	width:794px;
+ 	height:16px;
+ 	line-height:16px;
+ 	color:#333;
+ 	font-weight:bold;
+ 	padding-top:30px;
+ 	margin:0 auto;
+ 	font-size:14px;
+ }
+ /*华为账号*/
+  .hr1{
+ 	width: 794px;
+ 	margin: 0 auto;
+ 	padding-top: 120px;
+ 	border-bottom: 1px solid #e0e0e0;
+ 	/*text-align: center;*/
+ }
+ .mima{
+	width: 550px;
+	height: 34px;
+	margin:0 auto;
+}
+/*.node-mm{
+	width: 550px;
+	height: 34px;
+	margin:0 auto;
+}*/
+ .pad{
+ 	width: 110px;
+ 	height: 32px;
+ 	color: #999;
+ 	font-size: 16px;
+ 	padding-top:30px;
+ }
+ .pad1{
+ 	width: 334px;
+ 	height:32px;
+ 	line-height:32px;
+ 	display: block;
+ }
+ .pad2{
+ 	width: 334px;
+ 	height:32px;
+ 	/*padding-top:30px;*/
+ 	font-size:14px;
+ 	margin-top: 30px;
+ 	display: block;
+ 	padding-left: 10px;
+ 	line-height:32px;
+ }
+  .pad3{
+ 	width: 110px;
+ 	height: 32px;
+ 	color: #999;
+ 	font-size: 16px;
+ 	padding-top:30px;
+ }
+ .pad4{
+ 	width: 334px;
+ 	height:32px;
+ 	line-height:32px;
+ 	display: block;
+ }
+ .pad5{
+ 	width: 334px;
+ 	height:32px;
+ 	/*padding-top:30px;*/
+ 	font-size:14px;
+ 	margin-top: 30px;
+ 	display: block;
+ 	padding-left: 10px;
+ 	line-height:32px;
+ }
+ /*设置登录密码*/
+ .hr2{
+ 	width: 794px;
+ 	margin: 0 auto;
+ 	padding-top:30px;
+ 	border-bottom: 1px solid #e0e0e0;
+ 	/*text-align: center;*/
+ }
+ .content-fw{
+	margin-top: 30px;
+	color: #333;
+	font-weight:bold;
+ }
+ .content-gj{
+ 	margin-top:30px;
+	color: #333;
+	font-weight:bold;
+ }
+ .content-zc{
+ 	font-size: 14px;
+ 	margin-top:30px;
+ 	color: #999;
+ }
+ /*华为介绍*/
+ .hr3{
+ 	width: 794px;
+ 	margin: 0 auto;
+ 	padding-top:30px;
+ 	border-bottom: 1px solid #e0e0e0;
+ 	/*text-align: center;*/
+ }
+ .content-js{
+ 	margin-top: 50px;
+ 	font-size: 12px;
+	line-height: 180%;
+ }
+ /*.btn2{
+ 	margin:0 auto;
+ 	width: 279px;
+ 	height: 45px;
+ 	
+ }*/
+ .btn-b{
+ 	width: 279px;
+ 	height: 45px;
+ 	background: red;
+ 	display: block;
+ 	margin:0 auto;
+ 	border: solid 1px #9c9c9c;
+ 	color: #fff;
+ 	margin-top:30px;
+ }

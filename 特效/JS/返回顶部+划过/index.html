@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+*{
+	margin: 0;
+	padding:0;
+	list-style: none;
+}
+#box{
+	width: 980px;
+	height: 30px;
+	background: blue;
+	position: relative;
+}
+#box>ul{
+	position: absolute;
+	z-index: 5
+}
+#box>ul>li{
+	float: left;
+	padding:0 20px;
+	color: #fff;
+}
+#box>ul>li h4{
+	line-height: 30px;
+	text-align: center;
+	padding:0 20px;
+	cursor: pointer;
+}
+#box>ul>li ul{
+	display: none;
+}
+#box>ul>.list ul{
+	background: red;
+	border-radius: 5px;
+	display: block;
+}
+#box>ul>li li{
+	padding:5px 20px;
+}
+#main{
+	width: 980px;
+}
+#main>ul>li>h3{
+	cursor: pointer;
+	padding-left: 10px;
+	line-height: 25px;
+}
+#main>ul>li{
+	width: 180px;
+	background: url(img/img1.png) 120px 2px no-repeat;
+}
+#main>ul>.list2{
+	background: url(img/img2.png) 120px 2px no-repeat;
+}
+#main>ul>li ul{
+	display: none;
+}
+#main>ul>.list2 ul{
+	display: block;
+}
+#main>ul>li li{
+	padding-left: 20px;
+	line-height: 30px;
+}
+</style>
+<body>
+<div id="box">
+	<ul>
+		<li>
+			<h4>首页</h4>
+		</li>
+		<li>
+			<h4>1234</h4>
+			<ul>
+				<li>1234</li>
+				<li>1234</li>
+				<li>1234</li>
+			</ul>
+		</li>
+		<li>
+			<h4>5678</h4>
+			<ul>
+				<li>1234</li>
+				<li>1234</li>
+				<li>1234</li>
+				<li>1234</li>
+			</ul>
+		</li>
+		<li>
+			<h4>9101</h4>
+			<ul>
+				<li>1234</li>
+				<li>1234</li>
+				<li>1234</li>
+				<li>1234</li>
+				<li>1234</li>
+			</ul>
+		</li>
+	</ul>
+</div>	
+<div id='main'>
+	<ul>
+		<li>
+			<h3>1111</h3>
+			<ul>
+				<li>1_111</li>
+				<li>1_222</li>
+				<li>1_333</li>
+			</ul>
+		</li>
+		<li>
+			<h3>2222</h3>
+			<ul>
+				<li>2_111</li>
+				<li>2_222</li>
+				<li>2_333</li>
+			</ul>
+		</li>
+		<li>
+			<h3>3333</h3>
+			<ul>
+				<li>3_111</li>
+				<li>3_222</li>
+				<li>3_333</li>
+			</ul>
+		</li>
+	</ul>
+</div>
+<script type="text/javascript">
+	var box=document.getElementById('box'),
+		myli=box.getElementsByTagName('ul')[0].getElementsByTagName('li'),
+		main=document.getElementById('main'),
+		myli2=main.getElementsByTagName('ul')[0].getElementsByTagName('li');
+	for (var i = 0; i < myli.length; i++) {
+		myli[i].onmouseover=function(){
+			for (var i = 0; i < myli.length; i++) {
+				myli[i].className=''
+			};
+			this.className='list'
+		}
+	};
+	for (var i = 0; i < myli2.length; i++) {
+		myli2[i].onclick=function(){
+			for (var i = 0; i < myli2.length; i++) {
+				myli2[i].className=''
+			}	
+			this.className='list2';	
+		}
+	};
+</script>
+
+</body>
+</html>

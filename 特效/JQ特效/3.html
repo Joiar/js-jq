@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script src="./jquery-1.10.2.min.js"></script>
+        <style media="screen">
+            #all{
+                width: 200px;
+                height: 100px;
+                background: #ccc;
+                text-align: center;
+                line-height: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="all">
+        </div>
+        <button id="btn">点击</button>
+        <script type="text/javascript">
+            $(function () {
+                $('#btn').click(function () {
+                    $('#all').html('');
+                    // console.log(parseInt(100*Math.random()));
+                    // var a = 0;
+                    var a = parseInt(100*Math.random());
+                    var b =  ("#"+("00000"+((Math.random()*16777215+0.5)>>0).toString(16)).slice(-6));
+                    // console.log(a);
+                    $('#all').append(a).css('background-color',b).removeClass();
+                });
+            })
+        </script>
+    </body>
+</html>

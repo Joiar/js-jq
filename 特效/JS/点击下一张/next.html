@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+*{
+	margin: 0;
+	padding:0;
+	list-style: none;
+}
+img{
+	display: block;
+}
+a{
+	text-decoration: none;
+}
+#box{
+	width: 300px;
+	height: 250px;
+	overflow: hidden;
+	margin: 0 auto;
+}
+#box ul{
+	width: 1200px;
+	height: 225px;
+}
+#box ul li{
+	width: 300px;
+	height: 225px;
+	float: left;
+}
+#box ul li img{
+	width: 300px;
+	height: 225px;
+}
+#box p{
+	text-align: center;
+	line-height: 25px;
+	cursor: pointer;
+	color: red;
+}
+</style>
+<body>
+<div id='box'>
+	<ul>
+		<li><img src="img/1.jpg" alt=""></li>
+		<li><img src="img/2.jpg" alt=""></li>
+		<li><img src="img/3.jpg" alt=""></li>
+		<li><img src="img/4.jpg" alt=""></li>
+	</ul>
+	<p><span>上一个</span><span>下一个</span></p>
+</div>
+<script type="text/javascript">
+	//获取id名叫box的元素
+	var box=document.getElementById('box'),
+	//获取标签名叫ul的第一个标签，并且获取这个标签下的所有以li
+	 myli=document.getElementsByTagName('ul')[0].getElementsByTagName("li"),
+	 //获取标签名叫p的第一个标签，并且获取这个标签下的第二个span
+	 mysp2=document.getElementsByTagName('p')[0].getElementsByTagName('span')[1],
+	 //获取标签名叫p的第一个标签，并且获取这个标签下的第一个span
+	 mysp1=document.getElementsByTagName('p')[0].getElementsByTagName('span')[0],
+	 //定义一个原始值为0的数值
+	 num=0;
+	 //给mysp2这个元素加单击事件，让图片变换到下一张
+	mysp2.onclick=function(){
+		//让原始值为0的num累加
+		num++;
+		//让所有l隐藏
+		myli[0].style.display='none';
+		myli[1].style.display='none';
+		myli[2].style.display='none';
+		myli[3].style.display='none';
+		//判断num的值是否大于或等于四，如果满足条件让num等于0，并且让第一个li显示
+		if (num>=4) {
+			num=0;
+			myli[0].style.display='block';
+		//如果num没有大于或等于0的话，让num继续累计，并且显示当前累加到的个数显示
+		}else{
+			myli[num].style.display='block';
+		};
+	}
+	 //给mysp1这个元素加单击事件，让图片变化到上一张
+	mysp1.onclick=function(){
+		//让原始值为0的num累减（num当前的值为已经累加过后的值）
+		num--;
+		//让所有l隐藏
+		myli[0].style.display='none';
+		myli[1].style.display='none';
+		myli[2].style.display='none';
+		myli[3].style.display='none';
+		//判断num的值是否小于0，如果满足条件让num等于3，并且让第四个li显示
+		if (num<0) {
+			num=3;
+			myli[3].style.display='block';
+		//如果num没有小于0的话，让num继续累减，并且显示当前累减到的个数显示
+		}else{
+			myli[num].style.display='block';
+		};
+	}
+
+
+
+
+</script>	
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+<style>
+*{
+margin:0;
+padding:0;
+list-style:none;}
+
+
+#box{ 
+width:400px;
+height:440px;
+margin:0 auto;
+border:1px solid #ccc;
+overflow:hidden;}
+
+#box ul{ 
+width:400px;
+height:40px;
+background:#C03;
+}
+
+#box ul li{ 
+width:98px;
+height:38px;
+float:left;
+border:1px solid #ccc;
+color:fff;
+line-height:40px;
+text-align:center;
+}
+
+#box ol{ 
+width:400px;  
+height:400px;
+}
+
+#box ol li{ 
+width:400px;
+height:400px;
+}
+
+#box ol li img{ 
+width:400px;
+height:400px;
+}
+
+.list{
+background:#099 ;
+}
+
+
+
+
+
+</style>
+
+<body>
+<div id="box">
+
+	<ul>
+    	<li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    
+    <ol>
+    	<li class="list"><img src="img/1.jpg" /></li>
+        <li><img src="img/2.jpg" /></li>
+        <li><img src="img/3.jpg" /></li>
+        <li><img src="img/4.jpg" /></li>
+    </ol>
+
+</div>
+
+<script>
+ var box=document.getElementById('box'),
+ 	myul_li=box.getElementsByTagName('ul')[0].getElementsByTagName('li'),
+	myol_li=box.getElementsByTagName('ol')[0].getElementsByTagName('li');
+	
+	
+		for (var i =0;  i <myul_li.length; i++) {
+			myul_li[i].index=i;
+			myul_li[i].onmouseover=function(){
+			
+			for (var i =0;  i <myul_li.length; i++) {
+					myul_li[i].className='';
+					myol_li[i].style.display='none';
+				};
+				this.className='list';
+				myol_li[this.index].style.display='block';
+			}
+		};
+	
+	
+	myul_li[0].onmouseover=function(){
+		this.className='list';
+		myul_li[1].className='';
+		myul_li[2].className='';
+		myul_li[3].className='';
+		
+		myol_li[0].style.display='block';
+		myol_li[1].style.display='none';
+		myol_li[2].style.display='none';
+		myol_li[3].style.display='none';
+		}
+		
+		
+		myul_li[1].onmouseover=function(){
+		this.className='list';
+		myul_li[0].className='';
+		myul_li[2].className='';
+		myul_li[3].className='';
+		
+		myol_li[1].style.display='block';
+		myol_li[0].style.display='none';
+		myol_li[2].style.display='none';
+		myol_li[3].style.display='none';
+		}
+		
+		myul_li[2].onmouseover=function(){
+		this.className='list';
+		myul_li[1].className='';
+		myul_li[0].className='';
+		myul_li[3].className='';
+		
+		myol_li[2].style.display='block';
+		myol_li[1].style.display='none';
+		myol_li[0].style.display='none';
+		myol_li[3].style.display='none';
+		}
+		
+		myul_li[3].onmouseover=function(){
+		this.className='list';
+		myul_li[1].className='';
+		myul_li[2].className='';
+		myul_li[0].className='';
+		
+		myol_li[3].style.display='block';
+		myol_li[1].style.display='none';
+		myol_li[2].style.display='none';
+		myol_li[0].style.display='none';
+		}
+	
+	
+</script>
+
+</body>
+</html>

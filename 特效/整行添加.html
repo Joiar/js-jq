@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+        tr{
+            height: 30px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <script type="text/javascript">
+        var num = 1;
+        function btn1(){
+            var tab = document.getElementById('tab');
+            (function () {
+                document.write("<table id='tab' style='width: 300px;''>");
+                for (j = 0; j< num; j++) {
+                    document.write("<tr style='height: 30px;border: 1px solid #ccc;'>");
+                    document.write("<td></td>");
+                    document.write("</tr>");
+                }
+                document.write("</table>");
+                num++;
+            })();
+            colors();
+            document.write("<button onclick='btn1()'>add</button>");
+        }
+            // document.write("<p>abksdk</p>");
+            // console.log(num);
+            // window.navigate("localUrl");
+    </script>
+
+
+    <button onclick='btn1()'>add</button>
+    <script type="text/javascript">
+
+        var trs = document.getElementsByTagName('tr');
+
+        function colors () {
+            //数组.length可以获取到长度
+            for (var i=0; i<trs.length; i++) {
+
+                 //偶数行变yellow
+                if (i%2 == 0 ) {
+
+                    trs[i].style.backgroundColor ='yellow';
+
+                    //奇数行变pink
+                } else {
+
+                    trs[i].style.backgroundColor ='pink';
+                }
+
+            }
+        }
+
+
+    </script>
+</body>
+</html>

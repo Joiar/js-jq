@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+</head>
+<body>
+点击鼠标出现事间
+<div id="box">
+    <div id="top"></div>
+    <div id="nav"></div>
+    <div id="main"></div>
+    <div id="footer"></div>
+</div>
+<script>
+    var top,nav,main,footer
+
+    top=document.getElementById("top")
+    nav=document.getElementById("nav")
+    main=document.getElementById("main")
+    footer=document.getElementById("footer")
+
+
+
+    function auto(){
+    var time=new Date();
+        if(time.getDay()==0){
+             weekday="星期日"}
+         else if(time.getDay()==1){
+             weekday="星期一"}
+        else if(time.getDay()==2){
+            weekday="星期二"}
+        else if(time.getDay()==3){
+            weekday="星期三"}
+        else if(time.getDay()==4){
+            weekday="星期四"}
+        else if(time.getDay()==5){
+            weekday="星期五"}
+        else{
+            weekday="星期六"}
+
+
+
+    document.getElementById("top").innerHTML=time.getFullYear()+"年"+(time.getMonth()+1)+"月"
+    nav.innerHTML=time.getDate()+"日"
+    main.innerHTML=weekday
+
+
+
+
+
+        if (time.getSeconds()<10){
+            miao="0"+time.getSeconds()
+        }
+        else{miao=time.getSeconds()}
+
+        if(time.getMinutes()<10){fen="0"+time.getMinutes()}
+        else if(time.getMinutes()>=10){fen=time.getMinutes()}
+
+        if(time.getHours()<10){shi="0"+time.getHours()}
+        else if(time.getHours()>=10){shi=time.getHours()}
+
+
+        footer.innerHTML=shi+":"+fen+":"+miao
+    }
+    setInterval(auto,1000)
+            .toExponential()
+   /* if (time.getSeconds()<10){
+        miao="0"+time.getSeconds()
+    }
+    else{miao=time.getSeconds()}
+    footer.innerHTML=time.getHours()+":"+time.getMinutes()+":"+miao
+}
+    setInterval(auto,100)
+*/
+</script>
+</body>
+</html>

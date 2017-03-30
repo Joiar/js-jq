@@ -1,0 +1,17 @@
+#pageMenuBox{color: #666666;
+font: 12px/1.5 tahoma,arial,'Hiragino Sans GB',\5b8b\4f53,sans-serif;}
+.prev{padding-left: 20px;position: relative;width: 36px;}
+
+
+.triangle{left: 4px;display: inline-block;width: 0;height: 0;line-height: 0;border-style: dashed;border-color: transparent;border-width: 5px;font-size: 0;border-right-style: solid;border-right-color: #f60;}
+.triangleR{right: 4px;display: inline-block;width: 0;height: 0;line-height: 0;border-style: dashed;border-color: transparent;border-width: 5px;font-size: 0;border-left-style: solid;border-left-color: #f60;}
+
+#pageMenuBox a{display: inline-block; margin-right:4px;min-width: 24px;
+_width: 24px;height: 24px;color: #36c;padding: 0 2px;border: 1px solid #CCC;line-height: 24px;white-space: nowrap;font-family: Tahoma,SimSun,Arial;text-align: center;vertical-align: top;cursor: pointer;text-decoration: none;}
+
+.currentPage{display: inline-block; margin-right:4px;min-width: 24px;_width: 24px;height: 24px;padding: 0 2px;border: 1px solid #CCC;line-height: 24px;white-space: nowrap;font-family: Tahoma,SimSun,Arial;text-align: center;vertical-align: top;text-decoration: none;border-color: #f60;font-weight: 700;color: #f60;background-color: #FFEDE1;}
+
+.labTotal{height: 26px;line-height: 26px;margin: 0px 12px 0px 8px;}
+.labGoTo{}
+.pageNo{margin: 0px 2px;width: 32px;height: 20px;text-align: center;}
+.btnGoTo{margin: 0px;height: 26px;margin-left: 5px;}

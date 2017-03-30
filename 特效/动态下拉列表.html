@@ -1,0 +1,39 @@
+<!DOCTYPE>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>动态下拉列表</title>
+</head>
+
+<body>
+<form name="myForm">
+	<select name="yea"></select>年
+    <select name="mon"></select>月
+    <select name="day"></select>日
+</form>
+<script type="text/javascript">
+	for(y=1900;y<=2013;y++){
+		document.myForm.yea.options.add(new Option(y,y))
+	}
+	for(m=1;m<=12;m++){
+		document.myForm.mon.options.add(new Option(m+"月",m))
+	}
+	for(d=1;d<=31;d++){
+		document.myForm.day.options.add(new Option(d+"日",d))
+	}
+	var today=new Date();//创建一个系统时间对象
+	years=today.getFullYear();//获取年份
+	months=today.getMonth();//获取月份
+	days=today.getDate();//获取日期
+	document.myForm.mon.options[months].selected=true;
+	document.myForm.day.options[days-1].selected=true;
+	//设置系统的年份为默认
+
+	for(i=0;i<document.myForm.yea.options.length;i++){
+		if(document.myForm.yea.options[i].text==years)	{
+			document.myForm.yea.options[i].selected=true;
+		}
+	}
+</script>
+</body>
+</html>

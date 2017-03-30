@@ -1,0 +1,87 @@
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+*{
+	margin: 0;
+	padding:0;
+	list-style: none;
+}
+#box{
+	width:500px;
+	height: 28px;
+	margin: 0 auto;
+
+}
+
+#box input{
+	width: 200px;
+	height: 20px;
+	border:none;
+	border:1px solid #ccc;
+	border-radius: 3px;
+	display: inline-block;
+	float: left;
+	margin-top: 3px;
+}
+#box p{
+	width: 280px;
+	height: 26px;
+	float: right;
+	margin-right: 10px;
+	background-image: url(img/sprite.jpg);
+	background-repeat: no-repeat;
+	line-height: 30px;
+	text-indent: 35px;
+	display: none;
+}
+.mp1{
+	background-position: 0 -30px;
+}
+.mp2{
+	background-position: 0 -56px;
+}
+#leng{
+	width: 500px;
+	height: 12px;
+	margin: 0 auto;
+	color: #969696;
+	font-size: 12px;
+	display: none;
+}
+</style>
+<body>
+<div id="box">
+	<input type="text" value="" id='text'/>
+	<p id="myp" class='mp' ></p>
+</div>
+<div id="leng"></div>
+
+<script type="text/javascript">
+var box=document.getElementById('box'),
+	leng=document.getElementById('leng'),
+	myp=document.getElementById('myp'),
+    text=document.getElementById('text');
+   
+    text.onfocus=function(){
+    	myp.style.display='block';
+    	leng.style.display='block';
+    }
+    text.onkeyup=function(){
+    	var len = this.value.length;
+    	if (text.value.length>=5 && text.value.length<=25 ) {
+    		myp.innerHTML='正确！';
+    		myp.className='mp1';
+    	}else{
+    		myp.innerHTML='请输入在5-25之间';
+    		myp.className='mp2';
+    	}
+    	leng.innerHTML=len+'个字符';
+    }
+</script>
+</body>
+</html>

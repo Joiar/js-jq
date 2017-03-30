@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		font-family: '微软雅黑';
+		font-size: 14px;
+	}
+	#box{
+		width: 906px;
+		height: 324px;
+		overflow: hidden;
+		position: relative;
+		margin: 0 auto;
+	}
+	#box ul{
+		width: 3624px;
+		height: 324px;
+	}
+	#box ul li{
+		width: 906px;
+		height: 324px;
+		float: left;
+	}
+	#box ul li img{
+		width: 906px;
+		height: 324px;
+	}
+	#box ol{
+		width: 100px;
+		height: 30px;
+		position: absolute;
+		top:280px;
+		left: 780px;
+	}
+	#box ol li{
+		width: 28px;
+		height: 28px;
+		line-height: 28px;
+		text-align: center;
+		margin: 0 2px;
+		background: #0B3B7B;
+		color: #E3DCCA;
+		float: left;
+		cursor: pointer;
+		border-radius: 5px;
+	}
+	#box ol .list{
+		background: #E2A139;
+		color: #047B93;
+	}
+	#box a{
+		position: absolute;
+		top:50%;
+		text-decoration: none;
+	}
+	#prve{
+		left: 50px;
+	}
+	#next{
+		right: 50px;
+	}
+</style>
+<body>
+<div id='box'>
+	<ul>
+		<li><img src="img/d1.jpg" alt="" /></li>
+		<li><img src="img/d2.jpg" alt="" /></li>
+		<li><img src="img/d3.jpg" alt="" /></li>
+		<li><img src="img/d1.jpg" alt="" /></li>
+	</ul>
+    
+	<ol>
+		<li class="list">1</li>
+		<li>2</li>
+		<li>3</li>
+	</ol>
+	<!--a href="###" id='prve'>上一个</a>
+	<a href="###" id='next'>下一个</a-->
+</div>
+<script type="text/javascript" src="js/move.js"></script>
+<script type="text/javascript">
+	var box=document.getElementById('box'),
+	myul=box.getElementsByTagName('ul')[0],
+	ulli=myul.getElementsByTagName('li'),
+	myol=box.getElementsByTagName('ol')[0],
+	olli=myol.getElementsByTagName('li'),
+	w=ulli[0].offsetWidth,
+	timer=null,
+	n=0;
+	function change(){
+		if (n==0) {
+			myul.style.marginLeft='0'	
+		};
+		n++;
+		startMove(myul,-n*w,'marginLeft');
+		if (n==ulli.length-1) {
+			n=0;	
+		}
+		for (var i = 0; i <olli.length; i++) {
+			olli[i].className='';
+		};
+		olli[n].className='list';
+	}
+	timer=setInterval(function(){
+		change()
+	},3000)
+
+	for (var i = 0; i < olli.length; i++) {
+		olli[i].index=i;
+		olli[i].onmouseover=function(){
+			n=this.index-1;
+			change()
+		}
+	};
+	myol.onmouseover=function(){
+		clearInterval(timer)
+	}
+	myol.onmouseout=function(){
+		timer=setInterval(function(){
+			change()
+		},3000)
+	}
+	
+</script>	
+<!--script type="text/javascript">
+var box=document.getElementById('box'),
+	prve=document.getElementById('prve'),
+	next=document.getElementById('prve'),
+	myul=box.getElementsByTagName('ul')[0],
+	ulli=myul.getElementsByTagName('li'),
+	myol=box.getElementsByTagName('ol')[0],
+	olli=myol.getElementsByTagName('li'),
+	w=ulli[0].offsetWidth,
+	timer=null,
+	n=0;
+
+	next.onclick=function(){
+		
+		n++;
+		change()
+	}
+	function change(){
+		startMove(myul,-n*w,'marginLeft');
+		if (n==ulli.length-1) {
+			n=0;	
+		}
+		for (var i = 0; i <olli.length; i++) {
+			olli[i].className='';
+		};
+		olli[n].className='list';
+	}
+
+</script-->
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+*{
+	margin: 0;
+	padding:0;
+	list-style: none;
+}
+#box{
+	width: 980px;
+	height: 30px;
+	margin: 20px 200px;
+	background: blue;
+	position: relative;
+}
+#box>ul{
+	position: absolute;
+	z-index: 5
+}
+#box>ul>li{
+	float: left;
+	padding:0 20px;
+	color: #fff;
+}
+#box>ul>li h4{
+	line-height: 30px;
+	text-align: center;
+	padding:0 20px;
+	cursor: pointer;
+}
+#box>ul>li ul{
+	display: none;
+}
+#box>ul>.list ul{
+	background: red;
+	border-radius: 5px;
+	display: block;
+}
+#box>ul>li li{
+	padding:5px 20px;
+}
+#main{
+	width: 980px;
+}
+#main>ul>li>h3{
+	cursor: pointer;
+	padding-left: 10px;
+	line-height: 25px;
+}
+#main>ul>li{
+	width: 180px;
+	margin: 20px 200px;
+	background: url(img/img1.png) 120px 2px no-repeat;
+}
+#main>ul>.list2{
+	background: url(img/img2.png) 120px 2px no-repeat;
+}
+#main>ul>li ul{
+	display: none;
+}
+#main>ul>.list2 ul{
+	display: block;
+}
+#main>ul>li li{
+	padding-left: 20px;
+	line-height: 30px;
+}
+</style>
+<body>
+<div id="box">
+	<ul>
+		<li>
+			<h4>首页</h4>
+		</li>
+		<li>
+			<h4>公司简介</h4>
+			<ul>
+				<li>董事长致辞</li>
+				<li>董事长致辞</li>
+				<li>董事长致辞</li>
+			</ul>
+		</li>
+		<li>
+			<h4>产品介绍</h4>
+			<ul>
+				<li>质量第一</li>
+				<li>质量第一</li>
+				<li>质量第一</li>
+				<li>质量第一</li>
+			</ul>
+		</li>
+		<li>
+			<h4>产品介绍</h4>
+			<ul>
+				<li>质量第一</li>
+				<li>质量第一</li>
+				<li>质量第一</li>
+				<li>质量第一</li>
+			</ul>
+		</li>
+		<li>
+			<h4>产品介绍</h4>
+			<ul>
+				<li>质量第一</li>
+				<li>质量第一</li>
+				<li>质量第一</li>
+				<li>质量第一</li>
+			</ul>
+		</li>
+		<li>
+			<h4>在线服务</h4>
+			<ul>
+				<li>有事请留言</li>
+				<li>有事请留言</li>
+				<li>有事请留言</li>
+				<li>有事请留言</li>
+				<li>有事请留言</li>
+			</ul>
+		</li>
+	</ul>
+</div>	
+<div id='main'>
+	<ul>
+		<li>
+			<h3>公司动态</h3>
+			<ul>
+				<li>年终奖</li>
+				<li>日销售量</li>
+				<li>1_333</li>
+			</ul>
+		</li>
+		<li>
+			<h3>关于我们</h3>
+			<ul>
+				<li>QQ联系</li>
+				<li>微信联系</li>
+				<li>电话联系</li>
+			</ul>
+		</li>
+		<li>
+			<h3>产品列表</h3>
+			<ul>
+				<li>奔驰</li>
+				<li>奥迪</li>
+				<li>宝马</li>
+				<li>法拉利</li>
+			</ul>
+		</li>
+	</ul>
+</div>
+<script type="text/javascript">
+	var box=document.getElementById('box'),
+		myli=box.getElementsByTagName('ul')[0].getElementsByTagName('li'),
+		main=document.getElementById('main'),
+		myli2=main.getElementsByTagName('ul')[0].getElementsByTagName('li');
+	for (var i = 0; i < myli.length; i++) {
+		myli[i].onmouseover=function(){
+			for (var i = 0; i < myli.length; i++) {
+				myli[i].className=''
+			};
+			this.className='list'
+		}
+	};
+
+	for (var i = 0; i < myli2.length; i++) {
+		myli2[i].onclick=function(){
+			for (var i = 0; i < myli2.length; i++) {
+				myli2[i].className=''
+			}	
+			this.className='list2';	
+		}
+	};
+</script>
+
+</body>
+</html>

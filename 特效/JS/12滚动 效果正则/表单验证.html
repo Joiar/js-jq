@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>表单验证</title>
+<style type="text/css">
+label{display:inline-block;width:100px;text-align:right}
+input{margin-top:10px;width:150px;height:20px;border:1px solid #ccc;}
+.sub{width:60px;margin-left:100px;}
+</style>
+</head>
+
+<body>
+<form action="aa.php" method="post" name="login" onsubmit="return checkForm()">
+	<label>邮箱地址：</label><input type="text" name="user" /> <br/>
+    <label>密码：</label><input type="password" name="pwd" /> <br/>
+   <label> 手机号：</label><input type="text" name="mobil" /> <br/>
+    <label>姓名：</label><input type="text" name="name" />
+    <br/>
+    <input type="submit" value="提交" class="sub"/>
+</form>
+<script type="text/javascript">
+//当提交表单时，进行验证
+	/*
+		1、邮箱地址的格式：ambc@yahoo.com.cn
+		2、密码  6-18位
+		3、手机号 13811111111
+		4、姓名：必须是汉字
+	*/
+function checkForm(){
+	//1、邮箱地址的格式：ambc@yahoo.cn
+	emlReg=/^[0-9A-Za-z]+@[0-9A-Za-z]{3,}\.[a-z\.]{2,}$/      
+	eml=document.login.user.value;//获取用户名
+	if(!emlReg.test(eml)){
+		alert("邮箱地址不合法，请重新输入");
+		return false
+	}
+	//2、密码  6-18位
+	pwdReg=/.{6,18}/
+	pwd=document.login.pwd.value;
+	if(!pwdReg.test(pwd)){
+		alert("密码不合法，请重新输入");
+		return false
+	}
+	//3、手机号：13715152454(打头的必须是1，第二个数字必须是3、5、4、8，后面的任意的数字9次)
+	phoneReg=/^1[3548]\d{9}$/
+	phone=document.login.mobil.value;
+	if(!phoneReg.test(phone)){
+		alert("不合法，请重新输入");
+		return false	
+	}
+	//4、姓名：必须是汉字
+	nameReg=/^[\u4e00-\u9fa5]{2,12}$/
+	name=document.login.name.value
+	if(!nameReg.test(name)){
+		
+		alert("不合法，请重新输入");
+		return false	
+	}
+	
+}//end checkRorm
+</script>
+</body>
+</html>

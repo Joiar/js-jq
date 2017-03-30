@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>点击下一张显示</title>
+</head>
+<style type="text/css">
+*{
+	margin: 0;
+	padding:0;
+	list-style: none;
+}
+
+#box{
+	width: 300px;
+	height: 250px;
+	overflow: hidden;
+	margin: 0 auto;
+}
+#box ul{
+	width: 1200px;
+	height: 225px;
+}
+#box ul li{
+	width: 300px;
+	height: 225px;
+	float: left;
+}
+#box ul li img{
+	width: 300px;
+	height: 225px;
+	display: block;
+}
+#box p{margin-top:5px;
+	text-align: center;
+	line-height: 25px;
+	cursor: pointer;
+	color: red;
+}
+
+#box p span{
+padding: 0 10px;
+border: 1px solid #ccc;
+border-radius: 5px;
+background: #2393ea;}
+</style>
+<body>
+<div id='box'>
+	<ul>
+		<li><img src="img/1.jpg" alt=""></li>
+		<li><img src="img/2.jpg" alt=""></li>
+		<li><img src="img/3.jpg" alt=""></li>
+		<li><img src="img/4.jpg" alt=""></li>
+	</ul>
+	<p><span>上一个</span><span>下一个</span></p>
+</div>
+<script type="text/javascript">
+	var box=document.getElementById('box'),
+	 myli=document.getElementsByTagName('ul')[0].getElementsByTagName("li"),
+	 mysp2=document.getElementsByTagName('p')[0].getElementsByTagName('span')[1],
+	 mysp1=document.getElementsByTagName('p')[0].getElementsByTagName('span')[0],
+
+	 num=0;
+	mysp2.onclick=function(){
+		num++;
+
+		myli[0].style.display='none';
+		myli[1].style.display='none';
+		myli[2].style.display='none';
+		myli[3].style.display='none';
+
+		if (num>=4) {
+			num=0;
+			myli[0].style.display='block';
+
+		}else{
+			myli[num].style.display='block';
+		};
+	}
+
+	mysp1.onclick=function(){
+
+		num--;
+
+		myli[0].style.display='none';
+		myli[1].style.display='none';
+		myli[2].style.display='none';
+		myli[3].style.display='none';
+
+		if (num<0) {
+			num=3;
+			myli[3].style.display='block';
+		}else{
+			myli[num].style.display='block';
+		};
+	}
+
+
+
+
+</script>	
+</body>
+</html>
